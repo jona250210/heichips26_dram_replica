@@ -2,7 +2,7 @@
 # Please edit the fields below to match your project.
 
 project-name: Intel 1103 Replica
-top-cell: "heichips26_digital_project" # Must be a unique name
+top-cell: "heichips26_dram_replica" # Must be a unique name
 team-members:
 - Lukas Jahn
 - Jonathan Hager

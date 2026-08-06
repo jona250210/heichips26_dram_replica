@@ -6,15 +6,15 @@ S {}
 F {}
 E {}
 B 2 1680 -1420 2480 -1020 {flags=graph
-y1=1.5
+y1=2.2e-09
 y2=1.6
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.01949696
-x2=0.022932934
+x1=0
+x2=0.04
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -26,9 +26,9 @@ unitx=1
 logx=0
 logy=0
 linewidth_mult=3
-color="1 6"
-node="uio_in_1
-uio_in_0"}
+color="4 6"
+node="ui_in_1
+analog_1"}
 B 2 1680 -1000 2480 -600 {flags=graph
 y1=0
 y2=1.6
@@ -37,16 +37,14 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.01949696
-x2=0.022932934
+x1=0
+x2=0.04
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="uio_in_1
-analog_1
-uio_in_2"
-color="4 7 1"
+node=ui_in_2
+color=6
 dataset=-1
 unitx=1
 logx=0
@@ -54,15 +52,15 @@ logy=0
 linewidth_mult=3
 autoload=0}
 B 2 1680 -580 2480 -180 {flags=graph
-y1=0.51
+y1=0.49
 y2=1.6
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.01949696
-x2=0.022932934
+x1=0
+x2=0.04
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -75,9 +73,8 @@ logx=0
 logy=0
 linewidth_mult=3
 autoload=0
-hilight_wave=-1
-hcursor2_y=0.68967587
-hcursor1_y=1.4837757}
+hilight_wave=0
+}
 T {Testbench for transient analysis - HeiChips 2026 - Analog Project} 390 -1740 0 0 1 1 {}
 N 1420 -1160 1420 -1120 {lab=VPWR}
 N 1420 -1060 1420 -1020 {lab=GND}
@@ -156,13 +153,13 @@ N 1260 -540 1380 -540 {lab=analog_1}
 N 880 -880 900 -880 {lab=#net40}
 N 1260 -560 1270 -560 {lab=analog_2}
 N 1260 -520 1270 -520 {lab=#net41}
-N 740 -740 900 -740 {lab=uio_in_2}
-N 740 -740 740 -500 {lab=uio_in_2}
+N 740 -740 900 -740 {lab=ui_in_2}
+N 740 -740 740 -500 {lab=ui_in_2}
 N 820 -310 820 -290 {lab=GND}
-N 820 -700 820 -370 {lab=uio_in_0}
-N 820 -700 900 -700 {lab=uio_in_0}
-N 790 -720 790 -250 {lab=uio_in_1}
-N 790 -720 900 -720 {lab=uio_in_1}
+N 820 -700 820 -370 {lab=ui_in_0}
+N 820 -700 900 -700 {lab=ui_in_0}
+N 790 -720 790 -250 {lab=ui_in_1}
+N 790 -720 900 -720 {lab=ui_in_1}
 N 790 -190 790 -170 {lab=GND}
 C {devices/code_shown.sym} 0 -1450 0 0 {name=NGSPICE
 only_toplevel=true 
@@ -177,10 +174,10 @@ value="
 .param Cload=10p
 .param Rload=1k
 .param w=20u
-.param l=0.13u
+.param l=0.26u
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-12 gmin=1e-12
 .control
-
+.include ../../schematic/xschem/simulations/heichips26_analog_project.save
 save all
 
 * Operating Point Analysis
@@ -239,7 +236,7 @@ C {devices/vsource.sym} 1420 -1090 0 0 {name=VPWR value=\{VPWR\}}
 C {devices/gnd.sym} 1080 -420 0 0 {name=l3 lab=GND}
 C {devices/vsource.sym} 1340 -470 0 0 {name=vsine spice_ignore=true value="sin(\{Vcm\} 10m 1k)"
 }
-C {devices/lab_wire.sym} 740 -740 0 0 {name=l22 sig_type=std_logic lab=uio_in_2}
+C {devices/lab_wire.sym} 740 -740 0 0 {name=l22 sig_type=std_logic lab=ui_in_2}
 C {devices/gnd.sym} 740 -420 0 0 {name=l26 lab=GND}
 C {devices/code_shown.sym} 2000 -1590 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
@@ -348,5 +345,5 @@ C {devices/gnd.sym} 820 -290 0 0 {name=l53 lab=GND}
 C {vsource.sym} 820 -340 0 0 {name=V1 value=\{VPWR\} savecurrent=false}
 C {vsource.sym} 790 -220 0 0 {name=V2 value=\{VPWR\} savecurrent=false}
 C {devices/gnd.sym} 790 -170 0 0 {name=l54 lab=GND}
-C {devices/lab_wire.sym} 790 -720 0 0 {name=l55 sig_type=std_logic lab=uio_in_1}
-C {devices/lab_wire.sym} 820 -700 0 0 {name=l64 sig_type=std_logic lab=uio_in_0}
+C {devices/lab_wire.sym} 790 -720 0 0 {name=l55 sig_type=std_logic lab=ui_in_1}
+C {devices/lab_wire.sym} 820 -700 0 0 {name=l64 sig_type=std_logic lab=ui_in_0}

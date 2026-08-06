@@ -77,19 +77,18 @@ N 2270 -1100 2300 -1100 {lab=VGND}
 N 2240 -1000 2240 -960 {lab=VGND}
 N 2240 -1100 2240 -1000 {lab=VGND}
 N 2180 -1000 2240 -1000 {lab=VGND}
-N 1260 -1010 1260 -960 {lab=#net1}
-N 1260 -1010 1400 -1010 {lab=#net1}
-N 1260 -900 1260 -870 {lab=VGND}
+N 1310 -900 1310 -870 {lab=VGND}
 N 1070 -930 1110 -930 {lab=ui_in[0]}
-N 1460 -1010 1490 -1010 {lab=analog_1}
+N 1310 -1220 1310 -1190 {lab=analog_1}
 N 1140 -890 1140 -850 {lab=ui_in[2]}
-N 1430 -1080 1430 -1050 {lab=ui_in[1]}
-N 1200 -1050 1200 -930 {lab=#net2}
-N 1430 -1010 1430 -930 {lab=VPWR}
+N 1240 -1160 1270 -1160 {lab=ui_in[1]}
+N 1310 -1160 1390 -1160 {lab=VPWR}
 N 1140 -1040 1140 -930 {lab=VPWR}
-N 1260 -930 1330 -930 {lab=VPWR}
-N 1200 -930 1220 -930 {lab=#net2}
-N 1170 -930 1200 -930 {lab=#net2}
+N 1310 -930 1380 -930 {lab=VPWR}
+N 1310 -1130 1310 -960 {lab=#net1}
+N 1230 -930 1270 -930 {lab=analog_2}
+N 1230 -980 1230 -930 {lab=analog_2}
+N 1170 -930 1230 -930 {lab=analog_2}
 C {title-3.sym} 0 0 0 0 {name=l1 author="Barnabas Hidvegi" rev=1.0 lock=true}
 C {lab_pin.sym} 2240 -800 1 0 {name=p25 sig_type=std_logic lab=VAPWR}
 C {lab_pin.sym} 2240 -580 3 0 {name=p26 sig_type=std_logic lab=VGND}
@@ -179,7 +178,7 @@ mm_ok=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {sg13cmos5l_pr/sg13_lv_pmos.sym} 1430 -1030 1 0 {name=M3
+C {sg13cmos5l_pr/sg13_lv_pmos.sym} 1290 -1160 0 0 {name=M3
 l=0.13u
 w=0.15u
 ng=1
@@ -188,21 +187,21 @@ mm_ok=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {lab_pin.sym} 1260 -870 3 0 {name=p20 sig_type=std_logic lab=VGND}
+C {lab_pin.sym} 1310 -870 3 0 {name=p20 sig_type=std_logic lab=VGND}
 C {lab_pin.sym} 1070 -930 0 0 {name=p21 sig_type=std_logic lab=ui_in[0]}
-C {lab_pin.sym} 1430 -1080 1 0 {name=p23 sig_type=std_logic lab=ui_in[1]}
+C {lab_pin.sym} 1240 -1160 0 0 {name=p23 sig_type=std_logic lab=ui_in[1]}
 C {lab_pin.sym} 1140 -850 3 0 {name=p24 sig_type=std_logic lab=ui_in[2]}
-C {lab_pin.sym} 1490 -1010 2 0 {name=p67 sig_type=std_logic lab=analog_1
+C {lab_pin.sym} 1310 -1220 1 0 {name=p67 sig_type=std_logic lab=analog_1
 }
-C {lab_pin.sym} 1200 -1050 2 0 {name=p22 sig_type=std_logic lab=analog_2
+C {lab_pin.sym} 1230 -980 1 0 {name=p22 sig_type=std_logic lab=analog_2
 }
 C {lab_pin.sym} 1140 -1040 1 0 {name=p80 sig_type=std_logic lab=VPWR
 }
-C {lab_pin.sym} 1330 -930 2 0 {name=p81 sig_type=std_logic lab=VPWR
+C {lab_pin.sym} 1380 -930 2 0 {name=p81 sig_type=std_logic lab=VPWR
 }
-C {lab_pin.sym} 1430 -930 3 0 {name=p82 sig_type=std_logic lab=VPWR
+C {lab_pin.sym} 1390 -1160 2 0 {name=p82 sig_type=std_logic lab=VPWR
 }
-C {sg13cmos5l_pr/sg13_lv_pmos.sym} 1240 -930 0 0 {name=M1
+C {sg13cmos5l_pr/sg13_lv_pmos.sym} 1290 -930 0 0 {name=M1
 l=\{l\}
 w=\{w\}
 ng=1
@@ -211,3 +210,4 @@ mm_ok=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
+C {sg13cmos5l_pr/annotate_fet_params.sym} 1330 -880 0 0 {name="annot1" ref="M1"}

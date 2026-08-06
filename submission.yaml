@@ -1,12 +1,14 @@
 # This the configuration file for your submission.
 # Please edit the fields below to match your project.
 
-project-name: Cool Project
+project-name: Intel 1103 Replica
 top-cell: "heichips26_digital_project" # Must be a unique name
 team-members:
-- Firstname Lastname
-- Firstname Lastname
-- Firstname Lastname
+- Lukas Jahn
+- Jonathan Hager
+- Barnabás Hidvégi
+- Abdelaziz Ider
+- Jennifer Muck
 slot-size: small # small, large, tiny
 analog-pins: 0 # 0-3, only for small or tiny projects
 short-description: This is a super cool project!

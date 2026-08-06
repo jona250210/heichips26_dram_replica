@@ -210,4 +210,4 @@ mm_ok=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {sg13cmos5l_pr/annotate_fet_params.sym} 1330 -880 0 0 {name="annot1" ref="M1"}
+C {sg13cmos5l_pr/annotate_fet_params.sym} 1410 -880 0 0 {name="annot1" ref="M1"}

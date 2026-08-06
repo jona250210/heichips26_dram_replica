@@ -6,8 +6,8 @@ S {}
 F {}
 E {}
 B 2 1680 -1420 2480 -1020 {flags=graph
-y1=2.2e-09
-y2=1.6
+y1=0.64
+y2=2.24
 ypos1=0
 ypos2=2
 divy=5
@@ -161,10 +161,18 @@ N 820 -700 900 -700 {lab=ui_in_0}
 N 790 -720 790 -250 {lab=ui_in_1}
 N 790 -720 900 -720 {lab=ui_in_1}
 N 790 -190 790 -170 {lab=GND}
+N 1280 -290 1340 -290 {lab=GND}
+N 1280 -260 1280 -230 {lab=GND}
+N 1280 -230 1370 -230 {lab=GND}
+N 1280 -260 1300 -260 {lab=GND}
+N 1280 -290 1280 -260 {lab=GND}
+N 1340 -260 1370 -260 {lab=GND}
+N 1370 -260 1370 -230 {lab=GND}
 C {devices/code_shown.sym} 0 -1450 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
 .include ../../../netlist/pex/heichips26_analog_project_magic_pex_3.spice
+.include heichips26_analog_project.save
 .param VPWR=1.5
 .csparam VPWR=VPWR
 .param VAPWR=1.5
@@ -177,7 +185,6 @@ value="
 .param l=0.26u
 .options savecurrents klu method=gear reltol=1e-3 abstol=1e-12 gmin=1e-12
 .control
-.include ../../schematic/xschem/simulations/heichips26_analog_project.save
 save all
 
 * Operating Point Analysis
@@ -214,7 +221,7 @@ unset appendwrite
 set wr_vecnames
 set wr_singlescale
 wrdata ../plot_simulations/data/@schname\\\\.txt
-+ v(uio_in_0) v(analog_0) v(analog_1) v(analog_2)
++ v(uio_in_0) v(analog_1) v(analog_2)
 
 *quit
 .endc
@@ -347,3 +354,14 @@ C {vsource.sym} 790 -220 0 0 {name=V2 value=\{VPWR\} savecurrent=false}
 C {devices/gnd.sym} 790 -170 0 0 {name=l54 lab=GND}
 C {devices/lab_wire.sym} 790 -720 0 0 {name=l55 sig_type=std_logic lab=ui_in_1}
 C {devices/lab_wire.sym} 820 -700 0 0 {name=l64 sig_type=std_logic lab=ui_in_0}
+C {sg13cmos5l_pr/annotate_fet_params.sym} 1480 -500 0 0 {name="annot1" ref="M1"}
+C {sg13cmos5l_pr/sg13_lv_pmos.sym} 1320 -260 0 0 {name=M1
+l=0.13u
+w=0.15u
+ng=1
+m=1
+mm_ok=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {devices/gnd.sym} 1280 -230 0 0 {name=l65 lab=GND}

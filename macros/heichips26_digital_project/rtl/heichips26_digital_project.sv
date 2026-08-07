@@ -28,8 +28,8 @@ module heichips26_digital_project (
 
     // todo: values
     localparam int unsigned REF_DELAY = 2000; // [us]
-    localparam int unsigned READ_DELAY = 200; // [us]
-    localparam int unsigned WRITE_DELAY = 50; // [us]
+    localparam int unsigned READ_DELAY = 150; // [us]
+    localparam int unsigned WRITE_DELAY = 200; // [us]
 
     localparam int unsigned REF_CYCLES = REF_DELAY * CLK_FREQ / FACTOR;
     localparam int unsigned READ_CYCLES = READ_DELAY * CLK_FREQ / FACTOR;

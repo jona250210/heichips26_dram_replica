@@ -15,6 +15,7 @@ module row_sim #(
     input wire [COLS-1:0] write_col,
     input wire [ROWS-1:0] read_row,
     input wire [ROWS-1:0] write_row,
+    input wire precharge,
     input wire d_in,
     output wire [COLS-1:0] d_out
 );
@@ -80,13 +81,13 @@ module heichips26_digital_project (
     localparam int unsigned TOTAL_WRITE_CYCLES = WRITE_DELAY * CLK_FREQ / FACTOR;
     localparam int unsigned WRITE_CYCLES = TOTAL_WRITE_CYCLES - READ_CYCLES; // write cycles without read
 
-    localparam int unsigned COUNTER_WIDTH = $clog2(READ_CYCLES); // todo: assign largest value here
+    localparam int unsigned COUNTER_WIDTH = $clog2(READ_CYCLES); // todo: assign largest value (READ_CYCLES or TOTAL_WRITE_CYCLES) here
     localparam int unsigned REF_COUNTER_WIDTH = $clog2(REF_CYCLES);
 
-    localparam int unsigned ROWS = 4; // 32 rows and columns
-    localparam int unsigned COLUMNS = 32; // 32 rows and columns
-    localparam int unsigned ROWS_WIDTH = $clog2(ROWS); // width of RC ($clog2() not supported)
-    localparam int unsigned COLUMNS_WIDTH = $clog2(COLUMNS); // width of RC ($clog2() not supported)
+    localparam int unsigned ROWS = 4; 
+    localparam int unsigned COLUMNS = 32; 
+    localparam int unsigned ROWS_WIDTH = $clog2(ROWS); 
+    localparam int unsigned COLUMNS_WIDTH = $clog2(COLUMNS); 
 
     wire _unused = &{ena, ui_in[7:0], uio_in[7:0]}; // template
 
@@ -114,22 +115,19 @@ module heichips26_digital_project (
     assign d_in = ui_in[5];
     assign rw = ui_in[6];
     assign c_en = ui_in[7];
-    //assign row = ui_in[ROWS_WIDTH-1:0]; // row also driven by ref_row_counter
-    assign col = uio_in[COLUMNS_WIDTH-1:0];
 
+    assign col = uio_in[COLUMNS_WIDTH-1:0];
+    // row also driven by ref_row_counter
 
     // states
-    typedef enum logic [2:0] {IDLE, READ, W_READ, WRITE, REFA} state;
+    typedef enum logic [2:0] {IDLE, READ, W_READ, WRITE, REFA, PRE} state; // todo: integrate precharge state
     state state_d;
     state state_q;
 
     logic [ROWS-1:0] w_row_select; // sw lines
     logic [ROWS-1:0] r_row_select; // sr lines
     logic [COLUMNS-1:0] pre_row;  // data out from DRAM-cells
-    // assign pre_row = 'b0; // todo: assigned due to warning / toolchain fail
     logic [COLUMNS-1:0] write_cols; 
-
-
 
     logic [COUNTER_WIDTH-1:0] counter; // read/write operation delay
     logic done;
@@ -139,8 +137,6 @@ module heichips26_digital_project (
 
     logic need_refresh;
 
-    //logic rw;
-    //logic en;
     localparam int unsigned REF_AT = REF_CYCLES - TOTAL_WRITE_CYCLES;
     always_comb begin
         need_refresh = 1'b0;
@@ -311,6 +307,7 @@ module heichips26_digital_project (
     assign busy = !(state_q == IDLE || state_q == REFA);
     assign refresh = state_q == REFA;
 
+    // todo: replace this with actual module
     row_sim #(
         .COLS(COLUMNS),
         .ROWS(ROWS)
@@ -320,6 +317,7 @@ module heichips26_digital_project (
         .write_col(write_cols),
         .read_row(r_row_select),
         .write_row(w_row_select),
+        .precharge(1'b0),
         .d_in(d_in),
         .d_out(pre_row)
     );  

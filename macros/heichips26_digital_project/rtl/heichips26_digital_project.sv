@@ -20,25 +20,243 @@ module heichips26_digital_project (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-    // List all unused inputs to prevent warnings
-    wire _unused = &{ena, ui_in[7:1], uio_in[7:1]};
-    
-    logic [7:0] count;
-    
-    counter counter_0 (
-    `ifdef USE_POWER_PINS
-        .VPWR  (VPWR),
-        .VGND  (VGND),
-    `endif
-        .clk_i    (clk),
-        .rst_ni   (rst_n),
-        .enable_i (ui_in[0]),
+    localparam logic CMD_WRITE = 1'b1;
+    localparam logic CMD_READ = 1'b0;
 
-        .count_o  (count)
-    );
+    localparam int unsigned CLK_FREQ = 1_000_000; // [Hz]
+    localparam int unsigned FACTOR = 1_000_000;
+
+    // todo: values
+    localparam int unsigned REF_DELAY = 2000; // [us]
+    localparam int unsigned READ_DELAY = 2000; // [us]
+    localparam int unsigned WRITE_DELAY = 2000; // [us]
+
+    localparam int unsigned REF_CYCLES = REF_DELAY * CLK_FREQ / FACTOR;
+    localparam int unsigned READ_CYCLES = READ_DELAY * CLK_FREQ / FACTOR;
+    localparam int unsigned TOTAL_WRITE_CYCLES = WRITE_DELAY * CLK_FREQ / FACTOR;
+    localparam int unsigned WRITE_CYCLES = TOTAL_WRITE_CYCLES - READ_CYCLES; // write cycles without read
+    localparam int unsigned MAX = 32;
+
+    localparam int unsigned ROWS = 32; // 32 rows and columns
+    localparam int unsigned COLUMNS = 32; // 32 rows and columns
+    localparam int unsigned ROWS_WIDTH = 5; // width of RC ($clog2() not supported)
+    localparam int unsigned COLUMNS_WIDTH = 5; // width of RC ($clog2() not supported)
+    //wire _unused = &{ena, ui_in[7:1], uio_in[7:1]};
+    wire _unused = &{ena, ui_in[7:0], uio_in[7:0], clk, rst_n};
+
+    // output signals
+    logic d_out;
+    logic busy;
+
+    assign uo_out[0] = d_out;
+    assign uo_out[1] = busy;
+    assign uo_out[7:2] = 6'b0;
+
+    // input signals
+    logic d_in;
+    logic rw;
+    logic c_en;
+    logic [ROWS_WIDTH-1:0] row;
+    logic [COLUMNS_WIDTH-1:0] col;
+    // use all uio_in
+    assign uio_oe = 8'b0;
+    // does not use uio_out
+    assign uio_out = 8'b0;
+
+    assign d_in = ui_in[5];
+    assign rw = ui_in[6];
+    assign c_en = ui_in[7];
+    //assign row = ui_in[ROWS_WIDTH-1:0]; // row also driven by ref_row_counter
+    assign col = uio_in[COLUMNS_WIDTH-1:0];
+
+
+    // states
+    typedef enum logic [2:0] {IDLE, READ, W_READ, WRITE, REFA} state;
+    state state_d;
+    state state_q;
+
+    logic [ROWS-1:0] w_row_select; // sw lines
+    logic [ROWS-1:0] r_row_select; // sr lines
+    logic [COLUMNS-1:0] pre_row;  // data out from DRAM-cells
+    assign pre_row = 'b0; // todo: assigned due to warning / toolchain fail
+    logic [COLUMNS-1:0] read_cols; 
+
+
+
+    logic [MAX-1:0] counter; // read/write operation delay
+    logic done;
+    logic [MAX-1:0] ref_counter; // count to next refresh
+    logic [ROWS_WIDTH-1:0] ref_row_counter; // iterate over rows during refresh
+    logic [MAX-1:0] to;
+
+    logic need_refresh;
+
+    //logic rw;
+    //logic en;
+    always_comb begin
+        need_refresh = 1'b0;
+        if (ref_counter < TOTAL_WRITE_CYCLES) begin
+            need_refresh = 1'b1;
+        end
+    end
+
+    assign done = counter == to;
+
+    always_comb begin
+        r_row_select = {(ROWS){1'b1}};
+        w_row_select = {(ROWS){1'b1}};
+        read_cols = {(COLUMNS){1'b1}};
+
+        d_out = 1'b0;
+        if (state_q == READ) begin
+            for (int unsigned i = 0; i < ROWS; i++) begin
+                if (i[ROWS_WIDTH-1:0] == row) begin
+                    r_row_select[i] = 1'b0;
+                end
+            end
+        end
+
+        if (state_q == W_READ || state_q == WRITE) begin
+            for (int unsigned i = 0; i < ROWS; i++) begin
+                if (i[ROWS_WIDTH-1:0] == row) begin
+                    w_row_select[i] = 1'b0;
+                end
+            end
+        end
+
+        if (state_q == W_READ || state_q == WRITE) begin
+            for (int unsigned i = 0; i < COLUMNS; i++) begin
+                if (i[COLUMNS_WIDTH-1:0] == uio_in[COLUMNS_WIDTH-1:0]) begin
+                    
+                end
+            end
+        end
+
+        for (int unsigned i = 0; i < COLUMNS; i++) begin
+            if (i[COLUMNS_WIDTH-1:0] == uio_in[COLUMNS_WIDTH-1:0]) begin
+                d_out = pre_row[i];
+            end
+        end
+    end
+
+    always_ff @( posedge clk ) begin
+        if (!rst_n) begin
+            state_q <= IDLE;
+        end else begin
+            state_q <= state_d;
+        end
+    end
+
+    always_comb begin
+        if (need_refresh) begin
+            state_d = REFA;
+        end else begin
+            case (state_q)
+                IDLE: begin
+                    if (c_en && rw == CMD_WRITE) begin
+                        state_d = W_READ;
+                    end else if (c_en && rw == CMD_READ) begin
+                        state_d = READ;
+                    end else begin
+                        state_d = IDLE;
+                    end
+                end
+                READ: begin
+                    if (done) begin
+                        state_d = IDLE;
+                    end else begin
+                        state_d = READ;
+                    end
+                end
+                W_READ: begin
+                    if (done) begin
+                        state_d = WRITE;
+                    end else begin
+                        state_d = W_READ;
+                    end
+                end
+                WRITE: begin
+                    if (done) begin
+                        state_d = IDLE;
+                    end else begin
+                        state_d = WRITE;
+                    end
+                end
+                REFA: begin
+                    if ((counter == (ROWS-1)) && done) begin
+                        state_d = IDLE;
+                    end else begin
+                        state_d = REFA;
+                    end
+                end
+                default: begin
+                    state_d = IDLE;
+                end
+            endcase
+        end
+    end
+
+    always_comb begin
+        case (state_q)
+            IDLE: begin
+                to = 'b0;
+            end
+            READ, W_READ: begin
+                to = READ_CYCLES;
+            end
+            WRITE: begin
+                to = WRITE_CYCLES;
+            end
+            REFA: begin
+                to = REF_CYCLES;
+            end
+            default: begin
+                to = 0;
+            end
+        endcase
+    end
     
-    assign uo_out  = count;
-    assign uio_out = count;
-    assign uio_oe  = '1;
+    always_ff @( posedge clk ) begin
+        if (!rst_n) begin
+            counter <= 'b0;
+        end else begin
+            if (counter == to || state_q == IDLE || state_q == REFA) begin
+                counter <= 'b0;
+            end else begin
+                counter <= counter + 1;
+            end
+        end
+    end
+
+    always_ff @( posedge clk ) begin
+        if (!rst_n) begin
+            ref_row_counter <= 'b0;
+        end else begin
+            if (ref_row_counter == {(ROWS_WIDTH){1'b1}} || state_q != REFA) begin
+                ref_row_counter <= 'b0;
+            end else if (counter == to) begin
+                ref_row_counter <= ref_row_counter + 1;
+            end
+        end
+    end
+
+    always_ff @( posedge clk ) begin
+        if (!rst_n) begin
+            ref_counter <= 'b0;
+        end else begin
+            ref_counter <= ref_counter + 1;
+        end
+    end
+
+    // assign refresh row
+    always_comb begin
+        if (state_q == REFA) begin
+            row = ui_in[ROWS_WIDTH-1:0];
+        end else begin
+            row = ref_row_counter;
+        end
+    end
+
+    assign busy = state_q != IDLE;
 
 endmodule

@@ -36,7 +36,7 @@ FINAL_DIR      	:= final
 # is needed for linting and RTL simulation of the whole design.
 MODULES_SYNTH := \
 	$(SRC_DIR)/heichips26_digital_project.sv \
-	$(MACROS_DIR)/counter/rtl/counter.sv
+	#$(MACROS_DIR)/counter/rtl/counter.sv
 
 MODULES_SIM := \
 	$(MODULES_SYNTH)

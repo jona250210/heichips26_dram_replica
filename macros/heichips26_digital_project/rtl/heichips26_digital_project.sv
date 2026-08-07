@@ -35,14 +35,16 @@ module heichips26_digital_project (
     localparam int unsigned READ_CYCLES = READ_DELAY * CLK_FREQ / FACTOR;
     localparam int unsigned TOTAL_WRITE_CYCLES = WRITE_DELAY * CLK_FREQ / FACTOR;
     localparam int unsigned WRITE_CYCLES = TOTAL_WRITE_CYCLES - READ_CYCLES; // write cycles without read
-    localparam int unsigned MAX = 32;
+
+    localparam int unsigned COUNTER_WIDTH = $clog2(READ_CYCLES); // todo: assign largerst value here
+    localparam int unsigned REF_COUNTER_WIDTH = $clog2(REF_CYCLES);
 
     localparam int unsigned ROWS = 32; // 32 rows and columns
     localparam int unsigned COLUMNS = 32; // 32 rows and columns
-    localparam int unsigned ROWS_WIDTH = 5; // width of RC ($clog2() not supported)
-    localparam int unsigned COLUMNS_WIDTH = 5; // width of RC ($clog2() not supported)
-    //wire _unused = &{ena, ui_in[7:1], uio_in[7:1]};
-    wire _unused = &{ena, ui_in[7:0], uio_in[7:0], clk, rst_n};
+    localparam int unsigned ROWS_WIDTH = $clog2(ROWS); // width of RC ($clog2() not supported)
+    localparam int unsigned COLUMNS_WIDTH = $clog2(COLUMNS); // width of RC ($clog2() not supported)
+
+    wire _unused = &{ena, ui_in[7:0], uio_in[7:0]}; // template
 
     // output signals
     logic d_out;
@@ -83,11 +85,11 @@ module heichips26_digital_project (
 
 
 
-    logic [MAX-1:0] counter; // read/write operation delay
+    logic [COUNTER_WIDTH-1:0] counter; // read/write operation delay
     logic done;
-    logic [MAX-1:0] ref_counter; // count to next refresh
+    logic [REF_COUNTER_WIDTH-1:0] ref_counter; // count to next refresh
     logic [ROWS_WIDTH-1:0] ref_row_counter; // iterate over rows during refresh
-    logic [MAX-1:0] to;
+    logic [COUNTER_WIDTH-1:0] to;
 
     logic need_refresh;
 
@@ -95,7 +97,7 @@ module heichips26_digital_project (
     //logic en;
     always_comb begin
         need_refresh = 1'b0;
-        if (ref_counter < TOTAL_WRITE_CYCLES) begin
+        if (ref_counter < TOTAL_WRITE_CYCLES[COUNTER_WIDTH-1:0]) begin
             need_refresh = 1'b1;
         end
     end
@@ -183,7 +185,7 @@ module heichips26_digital_project (
                     end
                 end
                 REFA: begin
-                    if ((counter == (ROWS-1)) && done) begin
+                    if ((ref_row_counter == (ROWS-1)) && done) begin
                         state_d = IDLE;
                     end else begin
                         state_d = REFA;
@@ -202,13 +204,13 @@ module heichips26_digital_project (
                 to = 'b0;
             end
             READ, W_READ: begin
-                to = READ_CYCLES;
+                to = READ_CYCLES - 1;
             end
             WRITE: begin
-                to = WRITE_CYCLES;
+                to = WRITE_CYCLES - 1;
             end
             REFA: begin
-                to = REF_CYCLES;
+                to = REF_CYCLES - 1;
             end
             default: begin
                 to = 0;

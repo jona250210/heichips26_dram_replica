@@ -39,7 +39,7 @@ module heichips26_digital_project (
     localparam int unsigned COUNTER_WIDTH = $clog2(READ_CYCLES); // todo: assign largerst value here
     localparam int unsigned REF_COUNTER_WIDTH = $clog2(REF_CYCLES);
 
-    localparam int unsigned ROWS = 2; // 32 rows and columns
+    localparam int unsigned ROWS = 32; // 32 rows and columns
     localparam int unsigned COLUMNS = 32; // 32 rows and columns
     localparam int unsigned ROWS_WIDTH = $clog2(ROWS); // width of RC ($clog2() not supported)
     localparam int unsigned COLUMNS_WIDTH = $clog2(COLUMNS); // width of RC ($clog2() not supported)
@@ -49,10 +49,12 @@ module heichips26_digital_project (
     // output signals
     logic d_out;
     logic busy;
+    logic refresh; // high during refresh
 
     assign uo_out[0] = d_out;
     assign uo_out[1] = busy;
-    assign uo_out[7:2] = 6'b0;
+    assign uo_out[7:3] = 6'b0;
+    assign uo_out[2] = refresh;
 
     // input signals
     logic d_in;
@@ -261,5 +263,6 @@ module heichips26_digital_project (
     end
 
     assign busy = !(state_q == IDLE || state_q == REFA);
+    assign refresh = state_q == REFA;
 
 endmodule

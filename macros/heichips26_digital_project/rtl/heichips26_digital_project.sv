@@ -5,6 +5,50 @@
 
 `default_nettype none
 
+module row_sim #(
+    parameter int unsigned COLS = 32,
+    parameter int unsigned ROWS = 2
+) (
+    input wire clk,
+    input wire rst_n,
+    //input logic [COLS-1:0] read_col,
+    input wire [COLS-1:0] write_col,
+    input wire [ROWS-1:0] read_row,
+    input wire [ROWS-1:0] write_row,
+    input wire d_in,
+    output wire [COLS-1:0] d_out
+);
+
+logic [COLS-1:0] mem [ROWS];
+logic [COLS-1:0] out;
+
+always_ff @( posedge clk ) begin
+    if (!rst_n) begin
+        for (int unsigned i = 0; i < ROWS; i++) begin
+            mem[i] <= 'b0;
+        end
+    end else begin
+        for (int unsigned j = 0; j < ROWS; j++) begin
+            if (read_row[j]) begin
+                out <= mem[j];
+            end
+
+            if (write_row[j]) begin
+                for (int unsigned i = 0; i < COLS; i++) begin
+                    if (write_col[i]) begin
+                        mem[j][i] <= d_in;
+                    end
+                    //mem[j][i] <= (mem[j][i] && write_col[i]) || (d_in && !write_col[i]);
+                end
+            end
+        end
+    end
+end
+
+assign d_out = out;
+
+endmodule // row_sim
+
 module heichips26_digital_project (
 `ifdef USE_POWER_PINS
     inout  wire VPWR,
@@ -27,19 +71,19 @@ module heichips26_digital_project (
     localparam int unsigned FACTOR = 1_000_000;
 
     // todo: values
-    localparam int unsigned REF_DELAY = 2000; // [us]
-    localparam int unsigned READ_DELAY = 150; // [us]
-    localparam int unsigned WRITE_DELAY = 200; // [us]
+    localparam int unsigned REF_DELAY = 100; // [us]
+    localparam int unsigned READ_DELAY = 15; // [us]
+    localparam int unsigned WRITE_DELAY = 20; // [us]
 
     localparam int unsigned REF_CYCLES = REF_DELAY * CLK_FREQ / FACTOR;
     localparam int unsigned READ_CYCLES = READ_DELAY * CLK_FREQ / FACTOR;
     localparam int unsigned TOTAL_WRITE_CYCLES = WRITE_DELAY * CLK_FREQ / FACTOR;
     localparam int unsigned WRITE_CYCLES = TOTAL_WRITE_CYCLES - READ_CYCLES; // write cycles without read
 
-    localparam int unsigned COUNTER_WIDTH = $clog2(READ_CYCLES); // todo: assign largerst value here
+    localparam int unsigned COUNTER_WIDTH = $clog2(READ_CYCLES); // todo: assign largest value here
     localparam int unsigned REF_COUNTER_WIDTH = $clog2(REF_CYCLES);
 
-    localparam int unsigned ROWS = 32; // 32 rows and columns
+    localparam int unsigned ROWS = 4; // 32 rows and columns
     localparam int unsigned COLUMNS = 32; // 32 rows and columns
     localparam int unsigned ROWS_WIDTH = $clog2(ROWS); // width of RC ($clog2() not supported)
     localparam int unsigned COLUMNS_WIDTH = $clog2(COLUMNS); // width of RC ($clog2() not supported)
@@ -53,8 +97,8 @@ module heichips26_digital_project (
 
     assign uo_out[0] = d_out;
     assign uo_out[1] = busy;
-    assign uo_out[7:3] = 6'b0;
     assign uo_out[2] = refresh;
+    assign uo_out[7:3] = 5'b0;
 
     // input signals
     logic d_in;
@@ -82,8 +126,8 @@ module heichips26_digital_project (
     logic [ROWS-1:0] w_row_select; // sw lines
     logic [ROWS-1:0] r_row_select; // sr lines
     logic [COLUMNS-1:0] pre_row;  // data out from DRAM-cells
-    assign pre_row = 'b0; // todo: assigned due to warning / toolchain fail
-    logic [COLUMNS-1:0] read_cols; 
+    // assign pre_row = 'b0; // todo: assigned due to warning / toolchain fail
+    logic [COLUMNS-1:0] write_cols; 
 
 
 
@@ -107,15 +151,17 @@ module heichips26_digital_project (
 
     assign done = counter == to;
 
+    // set write and read active to high or low, i.e., write if 1 or write if 0
+    localparam logic ACTIVE = 1'b1;
     always_comb begin
-        r_row_select = {(ROWS){1'b1}};
-        w_row_select = {(ROWS){1'b1}};
-        read_cols = {(COLUMNS){1'b1}};
+        r_row_select = {(ROWS){!ACTIVE}};
+        w_row_select = {(ROWS){!ACTIVE}};
+        write_cols = {(COLUMNS){!ACTIVE}};
 
         if (state_q == READ) begin
             for (int unsigned i = 0; i < ROWS; i++) begin
                 if (i[ROWS_WIDTH-1:0] == row) begin
-                    r_row_select[i] = 1'b0;
+                    r_row_select[i] = ACTIVE;
                 end
             end
         end
@@ -123,22 +169,22 @@ module heichips26_digital_project (
         if (state_q == W_READ || state_q == WRITE) begin
             for (int unsigned i = 0; i < ROWS; i++) begin
                 if (i[ROWS_WIDTH-1:0] == row) begin
-                    w_row_select[i] = 1'b0;
+                    w_row_select[i] = ACTIVE;
                 end
             end
         end
 
         if (state_q == W_READ || state_q == WRITE) begin
             for (int unsigned i = 0; i < COLUMNS; i++) begin
-                if (i[COLUMNS_WIDTH-1:0] == uio_in[COLUMNS_WIDTH-1:0]) begin
-                    
+                if (i[COLUMNS_WIDTH-1:0] == col) begin
+                    write_cols[i] = ACTIVE;
                 end
             end
         end
 
         d_out = 1'b0;
         for (int unsigned i = 0; i < COLUMNS; i++) begin
-            if (i[COLUMNS_WIDTH-1:0] == uio_in[COLUMNS_WIDTH-1:0]) begin
+            if (i[COLUMNS_WIDTH-1:0] == col) begin
                 d_out = pre_row[i];
             end
         end
@@ -256,13 +302,27 @@ module heichips26_digital_project (
     // assign refresh row
     always_comb begin
         if (state_q == REFA) begin
-            row = ui_in[ROWS_WIDTH-1:0];
-        end else begin
             row = ref_row_counter;
+        end else begin
+            row = ui_in[ROWS_WIDTH-1:0];
         end
     end
 
     assign busy = !(state_q == IDLE || state_q == REFA);
     assign refresh = state_q == REFA;
 
+    row_sim #(
+        .COLS(COLUMNS),
+        .ROWS(ROWS)
+    ) rs (
+        .clk(clk),
+        .rst_n(rst_n),
+        .write_col(write_cols),
+        .read_row(r_row_select),
+        .write_row(w_row_select),
+        .d_in(d_in),
+        .d_out(pre_row)
+    );  
+
 endmodule
+

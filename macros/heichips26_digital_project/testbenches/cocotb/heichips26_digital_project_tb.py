@@ -22,7 +22,7 @@ hdl_toplevel = "heichips26_digital_project"
 
 CTR_WIDTH        = 8
 CTR_MAX          = 2**CTR_WIDTH-1
-CLK_FREQ_HZ      = 50e6
+CLK_FREQ_HZ      = 1e6
 CLK_FREQ_MHZ     = int(CLK_FREQ_HZ / 1e6)
 
 
@@ -67,23 +67,58 @@ async def test_reset_clears_heichips26_digital_project(dut):
 
 
 @cocotb.test()
-async def test_holds_when_disabled(dut):
-    """With ui_in[0] = 0, uo_out must not change."""
+async def test_simple_write(dut):
+    """Description"""
     logger = logging.getLogger("heichips26_digital_project_tb")
 
     logger.info("Startup sequence...")
     await start_up(dut)
 
-    dut.ui_in.value = 0
+    # Write setup
+    dut.ui_in.value = 0b011_00010  # Perform write with 1 to row 2 ...
+    dut.uio_in.value = 0b000_00001  # ... and column 1
     await ClockCycles(dut.clk, 20)
 
-    assert int(dut.uo_out.value) == 0, \
-        f"uo_out changed while disabled (got {int(dut.uo_out.value)})"
+    # Setting the c_en bit
+    tmp = dut.ui_in.value
+    tmp[7] = 1
+    dut.ui_in.value = tmp
+
+    await ClockCycles(dut.clk, 300)
+
+    # assert int(dut.uo_out.value) == 0, \
+    #     f"uo_out changed while disabled (got {int(dut.uo_out.value)})"
 
     logger.info("Done!")
 
 
 @cocotb.test()
+async def test_simple_read(dut):
+    """Description"""
+    logger = logging.getLogger("heichips26_digital_project_tb")
+
+    logger.info("Startup sequence...")
+    await start_up(dut)
+
+    # Write setup
+    dut.ui_in.value = 0b001_00010  # Perform read with 1 to row 2 ...
+    dut.uio_in.value = 0b000_00001  # ... and column 1
+    await ClockCycles(dut.clk, 20)
+
+    # Setting the c_en bit
+    tmp = dut.ui_in.value
+    tmp[7] = 1
+    dut.ui_in.value = tmp
+
+    await ClockCycles(dut.clk, 300)
+
+    # assert int(dut.uo_out.value) == 0, \
+    #     f"uo_out changed while disabled (got {int(dut.uo_out.value)})"
+
+    logger.info("Done!")
+
+
+# @cocotb.test()
 async def test_increments_when_enabled(dut):
     """With ui_in[0] = 1, uo_out must increment by 1 every clock."""
     logger = logging.getLogger("heichips26_digital_project_tb")
@@ -105,7 +140,7 @@ async def test_increments_when_enabled(dut):
     logger.info("Done!")
 
 
-@cocotb.test()
+# @cocotb.test()
 async def test_wraps_at_max(dut):
     """The counter value on uo_out must wrap from CTR_MAX back to 0."""
     logger = logging.getLogger("heichips26_digital_project_tb")
@@ -149,15 +184,17 @@ def heichips26_digital_project_runner():
         sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / f"{scl}.v")
         sources.append(Path(pdk_root) / pdk / "libs.ref" / scl / "verilog" / "sg13cmos5l_udp.v")
 
+        # TODO: Add analog DRAM macro here once we have it
         # Unpowered gate-level netlist of the macro
         sources.append(proj_path / f"../../final/nl/{hdl_toplevel}.nl.v")
-        sources.append(proj_path / f"../../macros/counter/final/nl/counter.nl.v")
+        # sources.append(proj_path / f"../../macros/counter/final/nl/counter.nl.v")
 
+        # TODO: Here too?
         # Unpowered netlist: USE_POWER_PINS must NOT be defined at all
         # (passing USE_POWER_PINS=False would still define the macro).
     else:
         sources.append(proj_path / "../../rtl/heichips26_digital_project.sv")
-        sources.append(proj_path / "../../macros/counter/rtl/counter.sv")
+        # sources.append(proj_path / "../../macros/counter/rtl/counter.sv")
 
     build_args = []
 

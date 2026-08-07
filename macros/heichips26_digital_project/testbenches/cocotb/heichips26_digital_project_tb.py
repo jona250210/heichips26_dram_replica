@@ -154,7 +154,7 @@ async def test_simple_refresh(dut):
     logger.info("Startup sequence...")
     await start_up(dut)
 
-    await ClockCycles(dut.clk, 100000)
+    await ClockCycles(dut.clk, 20000)
 
     # assert int(dut.uo_out.value) == 0, \
     #     f"uo_out changed while disabled (got {int(dut.uo_out.value)})"

@@ -28,8 +28,8 @@ module heichips26_digital_project (
 
     // todo: values
     localparam int unsigned REF_DELAY = 2000; // [us]
-    localparam int unsigned READ_DELAY = 2000; // [us]
-    localparam int unsigned WRITE_DELAY = 2000; // [us]
+    localparam int unsigned READ_DELAY = 200; // [us]
+    localparam int unsigned WRITE_DELAY = 200; // [us]
 
     localparam int unsigned REF_CYCLES = REF_DELAY * CLK_FREQ / FACTOR;
     localparam int unsigned READ_CYCLES = READ_DELAY * CLK_FREQ / FACTOR;
@@ -95,9 +95,10 @@ module heichips26_digital_project (
 
     //logic rw;
     //logic en;
+    localparam int unsigned REF_AT = REF_CYCLES - TOTAL_WRITE_CYCLES;
     always_comb begin
         need_refresh = 1'b0;
-        if (ref_counter < TOTAL_WRITE_CYCLES[COUNTER_WIDTH-1:0]) begin
+        if ((ref_counter > REF_AT[REF_COUNTER_WIDTH-1:0]) && state_q == IDLE) begin
             need_refresh = 1'b1;
         end
     end
@@ -109,7 +110,6 @@ module heichips26_digital_project (
         w_row_select = {(ROWS){1'b1}};
         read_cols = {(COLUMNS){1'b1}};
 
-        d_out = 1'b0;
         if (state_q == READ) begin
             for (int unsigned i = 0; i < ROWS; i++) begin
                 if (i[ROWS_WIDTH-1:0] == row) begin
@@ -134,6 +134,7 @@ module heichips26_digital_project (
             end
         end
 
+        d_out = 1'b0;
         for (int unsigned i = 0; i < COLUMNS; i++) begin
             if (i[COLUMNS_WIDTH-1:0] == uio_in[COLUMNS_WIDTH-1:0]) begin
                 d_out = pre_row[i];
@@ -243,7 +244,7 @@ module heichips26_digital_project (
     end
 
     always_ff @( posedge clk ) begin
-        if (!rst_n) begin
+        if (!rst_n || state_q == REFA) begin
             ref_counter <= 'b0;
         end else begin
             ref_counter <= ref_counter + 1;
@@ -259,6 +260,6 @@ module heichips26_digital_project (
         end
     end
 
-    assign busy = state_q != IDLE;
+    assign busy = !(state_q == IDLE || state_q == REFA);
 
 endmodule

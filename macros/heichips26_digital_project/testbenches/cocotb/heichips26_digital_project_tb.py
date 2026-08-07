@@ -84,6 +84,27 @@ async def test_simple_write(dut):
     tmp[7] = 1
     dut.ui_in.value = tmp
 
+    await ClockCycles(dut.clk, 5)
+
+    # Resetting the c_en bit
+    tmp = dut.ui_in.value
+    tmp[7] = 0
+    dut.ui_in.value = tmp
+
+    await ClockCycles(dut.clk, 300)
+
+    # Read the value back
+    tmp = dut.ui_in.value
+    tmp[7] = 1
+    tmp[6] = 0
+    dut.ui_in.value = tmp
+
+    await ClockCycles(dut.clk, 5)
+
+    tmp = dut.ui_in.value
+    tmp[7] = 0
+    dut.ui_in.value = tmp
+
     await ClockCycles(dut.clk, 300)
 
     # assert int(dut.uo_out.value) == 0, \
@@ -110,7 +131,30 @@ async def test_simple_read(dut):
     tmp[7] = 1
     dut.ui_in.value = tmp
 
+    await ClockCycles(dut.clk, 5)
+
+    # Resetting the c_en bit
+    tmp = dut.ui_in.value
+    tmp[7] = 0
+    dut.ui_in.value = tmp
+
     await ClockCycles(dut.clk, 300)
+
+    # assert int(dut.uo_out.value) == 0, \
+    #     f"uo_out changed while disabled (got {int(dut.uo_out.value)})"
+
+    logger.info("Done!")
+
+
+@cocotb.test()
+async def test_simple_refresh(dut):
+    """Description"""
+    logger = logging.getLogger("heichips26_digital_project_tb")
+
+    logger.info("Startup sequence...")
+    await start_up(dut)
+
+    await ClockCycles(dut.clk, 100000)
 
     # assert int(dut.uo_out.value) == 0, \
     #     f"uo_out changed while disabled (got {int(dut.uo_out.value)})"

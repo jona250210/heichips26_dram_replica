@@ -72,9 +72,10 @@ logy=0
 linewidth_mult=3
 autoload=0
 hilight_wave=-1
-color="20 6"
+color="20 6 4"
 node="Data_out
-~Data_out"}
+~Data_out
+C"}
 T {Testbench for transient analysis - Inverter} 740 -1730 0 0 1 1 {}
 N 480 -480 480 -460 {lab=GND}
 N 300 -580 300 -560 {lab=GND}
@@ -114,8 +115,8 @@ N 1350 -530 1350 -510 {lab=~Data_out}
 N 1250 -530 1350 -530 {lab=~Data_out}
 N 1250 -530 1250 -510 {lab=~Data_out}
 N 1150 -530 1250 -530 {lab=~Data_out}
+N 700 -660 750 -660 {lab=VPWR}
 C {title-3.sym} 0 0 0 0 {name=l2 author="Barnabas Hidvegi" rev=1.0 lock=true}
-C {/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell/schematic/xschem/dramcell.sym} 550 -600 0 0 {name=x1}
 C {devices/gnd.sym} 480 -460 0 0 {name=l26 lab=GND}
 C {devices/vsource.sym} 480 -510 0 1 {name=vpulse spice_ignore=False value="pulse(0 \{VPWR\} 0 10n 10n 10m 20m)"
 }
@@ -125,8 +126,8 @@ C {devices/gnd.sym} 400 -700 0 0 {name=l54 lab=GND}
 C {devices/code_shown.sym} 60 -1580 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
-.include ../../../netlist/pex/heichips26_analog_project_magic_pex_3.spice
-.include heichips26_analog_project.save
+*.include ../../../netlist/pex/heichips26_analog_project_magic_pex_3.spice
+*.include heichips26_analog_project.save
 .param VPWR=1.5
 .csparam VPWR=VPWR
 .param VAPWR=1.5
@@ -228,3 +229,6 @@ C {devices/gnd.sym} 1250 -430 0 0 {name=l17 lab=GND}
 C {devices/gnd.sym} 1350 -430 0 0 {name=l18 lab=GND}
 C {devices/vsource.sym} 300 -610 0 1 {name=vpulse1 spice_ignore=False value="pulse(0 \{VPWR\} 2.5m 10n 10n 5m 10m)"
 }
+C {dramcell.sym} 550 -600 0 0 {name=x1}
+C {devices/lab_pin.sym} 750 -660 0 1 {name=l3 sig_type=std_logic lab=C}
+C {sg13g2_pr/annotate_fet_params.sym} 1240 -660 0 0 {name=annot1 ref=M2}

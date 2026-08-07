@@ -1,0 +1,100 @@
+** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/testbenches/xschem/inverter_tb_tran.sch
+**.subckt inverter_tb_tran
+vpulse WWL GND pulse(0 {VPWR} 50n 1n 1n 10n 2m)
+VPWR VPWR GND {VPWR}
+XM2 RBL PreCh VPWR VPWR sg13_lv_pmos w=1u l=0.13u ng=1 m=1 mm_ok=1
+vpulse1 WBL GND pulse(0 {VPWR} 0 1n 1n 100n 2m)
+vpulse2 PreCh GND pulse(0 {VPWR} 4075n 1n 1n 10n 6u)
+vpulse3 RWL GND pulse(0 {VPWR} 2m 1n 1n 10n 500n)
+x3 WWL WBL RWL RBL GND VPWR NodeC dramcell_2_0
+XM1 ~RBL RBL VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM4 ~RBL RBL GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+**** begin user architecture code
+
+
+*.include ../../../netlist/pex/heichips26_analog_project_magic_pex_3.spice
+*.include heichips26_analog_project.save
+.param VPWR=1.5
+.csparam VPWR=VPWR
+.param VAPWR=1.5
+.csparam VAPWR=VAPWR
+.param Vcm=VAPWR/2
+.param temp=27
+.param Cload=10p
+.param Rload=1k
+.param w=25u
+.param l=0.13u
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-12 gmin=1e-12
+.control
+save all
+
+* Operating Point Analysis
+op
+remzerovec
+write inverter_tb_tran.raw
+set appendwrite
+
+* Transient Analysis
+tran 10u 1m
+write inverter_tb_tran.raw
+
+unset appendwrite
+set wr_vecnames
+set wr_singlescale
+*wrdata ../plot_simulations/data/inverter_tb_tran.txt
+
+*quit
+.endc
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:
+*+  /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell/schematic/xschem/dramcell.sym # of pins=6
+** sym_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell/schematic/xschem/dramcell.sym
+** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell/schematic/xschem/dramcell.sch
+.subckt dramcell ~W Data_in ~R Data_out VGND VPWR
+*.opin Data_out
+*.ipin ~W
+*.ipin Data_in
+*.ipin ~R
+*.iopin VPWR
+*.iopin VGND
+XM2 net4 ~W Data_in VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM3 net3 ~R Data_out VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM1 VGND net4 net3 VPWR sg13_lv_pmos w={w} l={l} ng=60 m=1 mm_ok=1
+*connector(8,1) ?1 net1 ?1 VPWR ?1 VGND ?1 ~W ?1 Data_in ?1 ~R ?1 Data_out ?1 net2
+* noconn #net1
+* noconn #net2
+.ends
+
+
+* expanding   symbol:  dramcell_2_0.sym # of pins=7
+** sym_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/schematic/xschem/dramcell_2_0.sym
+** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/schematic/xschem/dramcell_2_0.sch
+.subckt dramcell_2_0 WWL WBL RWL RBL VGND VPWR NodeC
+*.opin RBL
+*.ipin WWL
+*.ipin WBL
+*.ipin RWL
+*.iopin VPWR
+*.iopin VGND
+*.iopin NodeC
+*connector(8,1) ?1 net1 ?1 VPWR ?1 VGND ?1 WWL ?1 WBL ?1 RWL ?1 RBL ?1 NodeC
+* noconn #net1
+XM4 WBL WWL NodeC VGND sg13_lv_nmos w=0.5u l=0.13u ng=1 m=1 mm_ok=1
+XC3 NodeC VGND cap_cmomi w=3e-6 l=3e-6 mmin=1 mmax=4 feed=double subblock=0 m=1 mm_ok=1
+XM5 net2 NodeC VGND VGND sg13_lv_nmos w=10u l=0.13u ng=20 m=1 mm_ok=1
+XM6 RBL RWL net2 VGND sg13_lv_nmos w=1u l=0.13u ng=2 m=1 mm_ok=1
+.ends
+
+.GLOBAL GND
+.end

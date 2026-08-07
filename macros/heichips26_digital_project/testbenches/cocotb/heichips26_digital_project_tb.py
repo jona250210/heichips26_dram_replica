@@ -162,59 +162,6 @@ async def test_simple_refresh(dut):
     logger.info("Done!")
 
 
-# @cocotb.test()
-async def test_increments_when_enabled(dut):
-    """With ui_in[0] = 1, uo_out must increment by 1 every clock."""
-    logger = logging.getLogger("heichips26_digital_project_tb")
-
-    logger.info("Startup sequence...")
-    await start_up(dut)
-
-    dut.ui_in.value = 1
-
-    # Sample on a few subsequent clock edges and verify monotonic +1
-    expected = 1
-    for _ in range(min(8, CTR_MAX + 1)):
-        await RisingEdge(dut.clk)
-        await Timer(1, "ns")  # let combinational settle past edge
-        got = int(dut.uo_out.value)
-        assert got == expected, f"expected {expected}, got {got}"
-        expected += 1
-
-    logger.info("Done!")
-
-
-# @cocotb.test()
-async def test_wraps_at_max(dut):
-    """The counter value on uo_out must wrap from CTR_MAX back to 0."""
-    logger = logging.getLogger("heichips26_digital_project_tb")
-
-    logger.info("Startup sequence...")
-    await start_up(dut)
-
-    dut.ui_in.value = 1
-
-    # Run long enough to hit CTR_MAX and wrap
-    saw_max  = False
-    saw_wrap = False
-    prev     = 0
-    for _ in range(2 * (CTR_MAX + 1) + 4):
-        await RisingEdge(dut.clk)
-        await Timer(1, "ns")
-        cur = int(dut.uo_out.value)
-        if cur == CTR_MAX:
-            saw_max = True
-        if saw_max and prev == CTR_MAX and cur == 0:
-            saw_wrap = True
-            break
-        prev = cur
-
-    assert saw_max,  "uo_out never reached CTR_MAX"
-    assert saw_wrap, "uo_out did not wrap from CTR_MAX to 0"
-
-    logger.info("Done!")
-
-
 def heichips26_digital_project_runner():
 
     proj_path = Path(__file__).resolve().parent

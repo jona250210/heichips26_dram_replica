@@ -39,7 +39,7 @@ module heichips26_digital_project (
     localparam int unsigned COUNTER_WIDTH = $clog2(READ_CYCLES); // todo: assign largerst value here
     localparam int unsigned REF_COUNTER_WIDTH = $clog2(REF_CYCLES);
 
-    localparam int unsigned ROWS = 32; // 32 rows and columns
+    localparam int unsigned ROWS = 2; // 32 rows and columns
     localparam int unsigned COLUMNS = 32; // 32 rows and columns
     localparam int unsigned ROWS_WIDTH = $clog2(ROWS); // width of RC ($clog2() not supported)
     localparam int unsigned COLUMNS_WIDTH = $clog2(COLUMNS); // width of RC ($clog2() not supported)
@@ -211,7 +211,7 @@ module heichips26_digital_project (
                 to = WRITE_CYCLES - 1;
             end
             REFA: begin
-                to = REF_CYCLES - 1;
+                to = READ_CYCLES - 1;
             end
             default: begin
                 to = 0;
@@ -223,7 +223,7 @@ module heichips26_digital_project (
         if (!rst_n) begin
             counter <= 'b0;
         end else begin
-            if (counter == to || state_q == IDLE || state_q == REFA) begin
+            if (done || state_q == IDLE) begin
                 counter <= 'b0;
             end else begin
                 counter <= counter + 1;
@@ -235,9 +235,9 @@ module heichips26_digital_project (
         if (!rst_n) begin
             ref_row_counter <= 'b0;
         end else begin
-            if (ref_row_counter == {(ROWS_WIDTH){1'b1}} || state_q != REFA) begin
+            if ((ref_row_counter == {(ROWS_WIDTH){1'b1}} && done) || state_q != REFA) begin
                 ref_row_counter <= 'b0;
-            end else if (counter == to) begin
+            end else if (done) begin
                 ref_row_counter <= ref_row_counter + 1;
             end
         end

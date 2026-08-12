@@ -1,21 +1,20 @@
 ** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/testbenches/xschem/inverter_tb_tran.sch
 **.subckt inverter_tb_tran
-vpulse WWL GND pulse(0 {VPWR} 50n 1n 1n 10n 2m)
+vpulse WWL GND pulse(0 {VPWR} 50050n 1n 1n 10n 100u)
 VPWR VPWR GND {VPWR}
-XM2 RBL PreCh VPWR VPWR sg13_lv_pmos w=1u l=0.13u ng=1 m=1 mm_ok=1
-vpulse1 WBL GND pulse(0 {VPWR} 0 1n 1n 100n 2m)
-vpulse2 PreCh GND pulse(0 {VPWR} 4075n 1n 1n 10n 6u)
-vpulse3 RWL GND pulse(0 {VPWR} 2m 1n 1n 10n 100u)
-x3 WWL CWBL RWL RBL GND VPWR NodeC dramcell_2_0
-XM1 ~RBL RBL VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
-XM4 ~RBL RBL GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
-XM3 CWBL ~RBL VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
-XM5 CWBL ~RBL GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
-XM6 WBL ReFr CWBL VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+vpulse1 WBL GND pulse(0 {VPWR} 50u 1n 1n 100n 400u)
+vpulse3 RWL GND pulse(0 {VPWR} 150040n 1n 1n 30n 200u)
+x3 WWL CWBL RWL ~RBL GND NodeC dramcell_2_0
+XM1 RBL ~RBL VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM4 RBL ~RBL GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM6 CWBL RWL WBL VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
 XM7 WBL ~ReFr CWBL GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
-vpulse4 ReFr GND pulse(0 {VPWR} 100010n 1n 1n 10n 100u)
-XM8 ~ReFr ReFr VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
-XM9 ~ReFr ReFr GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM8 ~ReFr RWL VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM9 ~ReFr RWL GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM3 CWBL ~ReFr RBL VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM5 RBL RWL CWBL GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM2 ~RBL PreCh VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+vpulse2 PreCh GND pulse(0 {VPWR} 149040n 1n 1n 10n 200u)
 **** begin user architecture code
 
 
@@ -42,7 +41,7 @@ write inverter_tb_tran.raw
 set appendwrite
 
 * Transient Analysis
-tran 10n 200u
+tran 10n 800u
 write inverter_tb_tran.raw
 
 unset appendwrite
@@ -84,22 +83,20 @@ XM1 VGND net4 net3 VPWR sg13_lv_pmos w={w} l={l} ng=60 m=1 mm_ok=1
 .ends
 
 
-* expanding   symbol:  dramcell_2_0.sym # of pins=7
+* expanding   symbol:  dramcell_2_0.sym # of pins=6
 ** sym_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/schematic/xschem/dramcell_2_0.sym
 ** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/schematic/xschem/dramcell_2_0.sch
-.subckt dramcell_2_0 WWL WBL RWL RBL VGND VPWR NodeC
+.subckt dramcell_2_0 WWL WBL RWL RBL VGND NodeC
 *.opin RBL
 *.ipin WWL
 *.ipin WBL
 *.ipin RWL
-*.iopin VPWR
 *.iopin VGND
 *.iopin NodeC
-*connector(8,1) ?1 net1 ?1 VPWR ?1 VGND ?1 WWL ?1 WBL ?1 RWL ?1 RBL ?1 NodeC
-* noconn #net1
 XM4 WBL WWL NodeC VGND sg13_lv_nmos w=0.5u l=0.13u ng=1 m=1 mm_ok=1
-XM5 net2 NodeC VGND VGND sg13_lv_nmos w=10u l=0.13u ng=20 m=1 mm_ok=1
-XM6 RBL RWL net2 VGND sg13_lv_nmos w=1u l=0.13u ng=2 m=1 mm_ok=1
+XM5 net1 NodeC VGND VGND sg13_lv_nmos w=10u l=0.13u ng=20 m=1 mm_ok=1
+XM6 RBL RWL net1 VGND sg13_lv_nmos w=1u l=0.13u ng=2 m=1 mm_ok=1
+*connector(6,1) ?1 VGND ?1 WWL ?1 WBL ?1 RWL ?1 RBL ?1 NodeC
 .ends
 
 .GLOBAL GND

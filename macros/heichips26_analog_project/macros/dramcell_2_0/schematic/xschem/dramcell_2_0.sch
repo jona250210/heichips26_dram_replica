@@ -6,13 +6,11 @@ S {}
 F {}
 E {}
 T {Inverter with Dummies and with LV Transistors} 610 -1700 0 0 1 1 {}
-N 790 -960 850 -960 {lab=#net1}
 N 790 -900 850 -900 {lab=WWL}
 N 790 -880 850 -880 {lab=WBL}
 N 790 -860 850 -860 {lab=RWL}
 N 790 -840 850 -840 {lab=RBL}
 N 790 -820 850 -820 {lab=NodeC}
-N 790 -940 850 -940 {lab=VPWR}
 N 790 -920 850 -920 {lab=VGND}
 N 1200 -800 1240 -800 {lab=WBL}
 N 1270 -890 1270 -800 {lab=VGND}
@@ -22,7 +20,7 @@ N 1480 -1090 1480 -1060 {lab=RBL}
 N 1410 -1030 1440 -1030 {lab=RWL}
 N 1480 -1030 1560 -1030 {lab=VGND}
 N 1480 -800 1550 -800 {lab=VGND}
-N 1480 -1000 1480 -830 {lab=#net2}
+N 1480 -1000 1480 -830 {lab=#net1}
 N 1380 -800 1440 -800 {lab=NodeC}
 N 1380 -650 1380 -610 {lab=VGND}
 N 1380 -800 1380 -710 {lab=NodeC}
@@ -33,10 +31,7 @@ C {devices/opin.sym} 790 -840 2 0 {name=p1 lab=RBL}
 C {devices/ipin.sym} 790 -900 2 1 {name=p2 lab=WWL}
 C {devices/ipin.sym} 790 -880 2 1 {name=p3 lab=WBL}
 C {devices/ipin.sym} 790 -860 2 1 {name=p4 lab=RWL}
-C {conn_8x1.sym} 870 -940 0 1 {name=c2 footprint=connector(8,1)}
-C {devices/iopin.sym} 790 -940 2 0 {name=p5 lab=VPWR}
 C {devices/iopin.sym} 790 -920 2 0 {name=p6 lab=VGND}
-C {noconn.sym} 790 -960 0 0 {name=l4}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} 1270 -780 3 0 {name=M4
 l=0.13u
 w=0.5u
@@ -68,12 +63,12 @@ subblock=0
 m=1
 mm_ok=1
 spiceprefix=X
-}
+spice_ignore=true}
 C {lab_pin.sym} 1380 -610 0 0 {name=p18 sig_type=std_logic lab=VGND}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} 1460 -800 0 0 {name=M5
 l=0.13u
-w=10u
-ng=20
+w=0.5u
+ng=1
 m=1
 mm_ok=1
 model=sg13_lv_nmos
@@ -96,3 +91,4 @@ device="ceramic capacitor"
 spice_ignore=true}
 C {devices/iopin.sym} 790 -820 2 0 {name=p19 lab=NodeC}
 C {lab_pin.sym} 1380 -860 0 0 {name=p15 sig_type=std_logic lab=NodeC}
+C {conn_6x1.sym} 870 -900 0 1 {name=c1 footprint=connector(6,1)}

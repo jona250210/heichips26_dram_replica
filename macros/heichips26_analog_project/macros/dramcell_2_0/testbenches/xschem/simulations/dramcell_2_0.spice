@@ -4,13 +4,11 @@
 *.ipin WWL
 *.ipin WBL
 *.ipin RWL
-*.iopin VPWR
 *.iopin VGND
 *.iopin NodeC
-*connector(8,1) ?1 net1 ?1 VPWR ?1 VGND ?1 WWL ?1 WBL ?1 RWL ?1 RBL ?1 NodeC
-* noconn #net1
 XM4 WBL WWL NodeC VGND sg13_lv_nmos w=0.5u l=0.13u ng=1 m=1 mm_ok=1
-XM5 net2 NodeC VGND VGND sg13_lv_nmos w=10u l=0.13u ng=20 m=1 mm_ok=1
-XM6 RBL RWL net2 VGND sg13_lv_nmos w=1u l=0.13u ng=2 m=1 mm_ok=1
+XM5 net1 NodeC VGND VGND sg13_lv_nmos w=10u l=0.13u ng=20 m=1 mm_ok=1
+XM6 RBL RWL net1 VGND sg13_lv_nmos w=1u l=0.13u ng=2 m=1 mm_ok=1
+*connector(6,1) ?1 VGND ?1 WWL ?1 WBL ?1 RWL ?1 RBL ?1 NodeC
 **.ends
 .end

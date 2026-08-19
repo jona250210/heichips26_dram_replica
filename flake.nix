@@ -50,9 +50,7 @@
         system:
         let
           pkgs = (self.legacyPackages.${system});
-        in
-        {
-          default = pkgs.librelane-shell.override ({
+          myLibreLane = pkgs.librelane-shell.override {
             extra-packages = with pkgs; [
               # Tools
               gnumake
@@ -106,7 +104,19 @@
                 eval = "\"qt.multimedia.*=false\"";
               }
             ];
-          });
+          };
+        in
+        {
+          default = pkgs.mkShell {
+            inputsFrom = [ myLibreLane ]; # Import all Tools from myLibreLane
+
+            shellHook = ''
+                export PDK_ROOT="$(pwd)/IHP-Open-PDK"
+                export PDK="ihp-sg13cmos5l"
+
+                echo "PDK environment loaded: $PDK_ROOT ($PDK)"
+            '';
+          };
         }
       );
     };

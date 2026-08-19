@@ -15,11 +15,11 @@ MM3 CWBL ~ReFr RBL VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
 MM5 RBL RWL CWBL GND sg13_lv_nmos w=0.15u l=0.13u ng=1
 MM2 ~RBL PreCh VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
 vpulse2 PreCh GND pulse({VPWR} 0 150008n 1n 1n 10n 200u)
-x3 WWL CWBL RWL ~RBL GND NodeC dramcell_2_0_pex
+x3 WWL CWBL RWL ~RBL GND NodeC dramcell_2_0
 **** begin user architecture code
 
 
-*.include ../../../netlist/pex/dramcell_2_0_magic_pex_3.spice
+.include ../../../netlist/pex/dramcell_2_0_magic_pex_3.spice
 *.include heichips26_analog_project.save
 .param VPWR=1.5
 .csparam VPWR=VPWR

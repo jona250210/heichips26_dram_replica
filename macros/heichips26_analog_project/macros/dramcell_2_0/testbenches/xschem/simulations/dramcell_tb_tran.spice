@@ -1,10 +1,9 @@
-** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/testbenches/xschem/inverter_tb_tran.sch
-**.subckt inverter_tb_tran
+** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/testbenches/xschem/dramcell_tb_tran.sch
+**.subckt dramcell_tb_tran
 vpulse WWL GND pulse(0 {VPWR} 50050n 1n 1n 10n 100u)
 VPWR VPWR GND {VPWR}
 vpulse1 WBL GND pulse(0 {VPWR} 50u 1n 1n 100n 400u)
 vpulse3 RWL GND pulse(0 {VPWR} 150040n 1n 1n 30n 200u)
-x3 WWL CWBL RWL ~RBL GND NodeC dramcell_2_0
 XM1 RBL ~RBL VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
 XM4 RBL ~RBL GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
 XM6 CWBL RWL WBL VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
@@ -15,10 +14,11 @@ XM3 CWBL ~ReFr RBL VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
 XM5 RBL RWL CWBL GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
 XM2 ~RBL PreCh VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
 vpulse2 PreCh GND pulse({VPWR} 0 150008n 1n 1n 10n 200u)
+x3 WWL CWBL RWL ~RBL GND NodeC dramcell_2_0_pex
 **** begin user architecture code
 
 
-*.include ../../../netlist/pex/heichips26_analog_project_magic_pex_3.spice
+.include ../../../netlist/pex/dramcell_2_0_magic_pex_3.spice
 *.include heichips26_analog_project.save
 .param VPWR=1.5
 .csparam VPWR=VPWR
@@ -37,17 +37,17 @@ save all
 * Operating Point Analysis
 op
 remzerovec
-write inverter_tb_tran.raw
+write dramcell_tb_tran.raw
 set appendwrite
 
 * Transient Analysis
 tran 10n 800u
-write inverter_tb_tran.raw
+write dramcell_tb_tran.raw
 
 unset appendwrite
 set wr_vecnames
 set wr_singlescale
-*wrdata ../plot_simulations/data/inverter_tb_tran.txt
+*wrdata ../plot_simulations/data/dramcell_tb_tran.txt
 
 *quit
 .endc

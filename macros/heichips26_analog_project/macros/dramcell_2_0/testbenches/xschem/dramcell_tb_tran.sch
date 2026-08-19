@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.00035000611
-x2=0.00035007417
+x1=0
+x2=0.0008
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -39,8 +39,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.00035000611
-x2=0.00035007417
+x1=0
+x2=0.0008
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -63,8 +63,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.00035000611
-x2=0.00035007417
+x1=0
+x2=0.0008
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -80,15 +80,15 @@ node="RBL
 ~RBL"
 linewidth_mult=6}
 B 2 800 -1490 1600 -1090 {flags=graph
-y1=0
-y2=1.6
+y1=0.64
+y2=2.24
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.00035000611
-x2=0.00035007417
+x1=0
+x2=0.0008
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -110,8 +110,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.00035000611
-x2=0.00035007417
+x1=0
+x2=0.0008
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -133,8 +133,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.00035000611
-x2=0.00035007417
+x1=0
+x2=0.0008
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -231,7 +231,7 @@ C {devices/gnd.sym} 500 -1000 0 1 {name=l53 lab=GND}
 C {devices/code_shown.sym} 0 -1700 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
-*.include ../../../netlist/pex/heichips26_analog_project_magic_pex_3.spice
+.include ../../../netlist/pex/dramcell_2_0_magic_pex_3.spice
 *.include heichips26_analog_project.save
 .param VPWR=1.5
 .csparam VPWR=VPWR
@@ -298,7 +298,6 @@ C {devices/vsource.sym} 500 -1050 0 1 {name=vpulse1 value="pulse(0 \{VPWR\} 50u 
 C {devices/lab_pin.sym} 580 -150 0 1 {name=l4 sig_type=std_logic lab=NodeC}
 C {devices/vsource.sym} 260 -910 0 1 {name=vpulse3 spice_ignore=False value="pulse(0 \{VPWR\} 150040n 1n 1n 30n 200u)"
 }
-C {dramcell_2_0.sym} 410 -90 0 0 {name=x3}
 C {sg13cmos5l_pr/sg13_lv_pmos.sym} 660 -270 0 0 {name=M1
 l=0.13u
 w=0.15u
@@ -412,3 +411,7 @@ C {devices/gnd.sym} 260 -1000 0 0 {name=l13 lab=GND}
 C {devices/lab_pin.sym} 510 -420 2 1 {name=l16 sig_type=std_logic lab=PreCh}
 C {dramcell_2_0.sym} -260 -320 0 0 {name=x1
 spice_ignore=true}
+C {dramcell_2_0_pex.sym} -250 -60 0 0 {name=x2
+spice_ignore=true}
+C {dramcell_2_0_pex.sym} 410 -90 0 0 {name=x3
+}

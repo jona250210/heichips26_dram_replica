@@ -5,7 +5,6 @@ V {}
 S {}
 F {}
 E {}
-T {Inverter with Dummies and with LV Transistors} 610 -1700 0 0 1 1 {}
 N 790 -900 850 -900 {lab=WWL}
 N 790 -880 850 -880 {lab=WBL}
 N 790 -860 850 -860 {lab=RWL}
@@ -34,7 +33,7 @@ C {devices/ipin.sym} 790 -860 2 1 {name=p4 lab=RWL}
 C {devices/iopin.sym} 790 -920 2 0 {name=p6 lab=VGND}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} 1270 -780 3 0 {name=M4
 l=0.13u
-w=0.5u
+w=0.3u
 ng=1
 m=1
 mm_ok=1
@@ -67,7 +66,7 @@ spice_ignore=true}
 C {lab_pin.sym} 1380 -610 0 0 {name=p18 sig_type=std_logic lab=VGND}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} 1460 -800 0 0 {name=M5
 l=0.13u
-w=0.5u
+w=0.3u
 ng=1
 m=1
 mm_ok=1
@@ -76,19 +75,13 @@ spiceprefix=X
 }
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} 1460 -1030 0 0 {name=M6
 l=0.13u
-w=1u
-ng=2
+w=0.9u
+ng=3
 m=1
 mm_ok=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {capa.sym} 1610 -600 0 0 {name=C4
-m=1
-value=50f
-footprint=1206
-device="ceramic capacitor"
-spice_ignore=true}
 C {devices/iopin.sym} 790 -820 2 0 {name=p19 lab=NodeC}
 C {lab_pin.sym} 1380 -860 0 0 {name=p15 sig_type=std_logic lab=NodeC}
 C {conn_6x1.sym} 870 -900 0 1 {name=c1 footprint=connector(6,1)}

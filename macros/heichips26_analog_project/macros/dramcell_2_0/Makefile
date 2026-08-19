@@ -4,7 +4,7 @@
 MAKEFILE_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 # Variables
-TOP = inverter
+TOP = dramcell_2_0
 
 .DEFAULT_GOAL := help
 

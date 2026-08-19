@@ -1,0 +1,21 @@
+* Extracted by KLayout with SG13CMOS5L LVS runset on : 17/08/2026 12:18
+
+.SUBCKT heichips26_analog_project VAPWR VGND VPWR analog_0 analog_1 analog_2
++ ui_in[0]
+M$1 VGND VPWR VGND VGND sg13_lv_pmos L=10u W=10u AS=3.4p AD=3.4p PS=20.68u
++ PD=20.68u rfmode=0
+M$2 VGND VAPWR VGND VGND sg13_lv_pmos L=10u W=10u AS=3.4p AD=3.4p PS=20.68u
++ PD=20.68u rfmode=0
+M$3 VGND VGND VGND VGND sg13_lv_nmos L=1u W=4u AS=1.06p AD=1.06p PS=8.12u
++ PD=8.12u rfmode=0
+M$4 VGND ui_in[0] analog_2 VGND sg13_lv_nmos L=1u W=20u AS=3.8p AD=3.8p
++ PS=27.6u PD=27.6u rfmode=0
+M$26 VGND analog_0 analog_1 VGND sg13_lv_nmos L=1u W=20u AS=3.8p AD=3.8p
++ PS=27.6u PD=27.6u rfmode=0
+M$47 VAPWR VAPWR VAPWR VAPWR sg13_lv_pmos L=1u W=24u AS=6.36p AD=6.36p
++ PS=38.12u PD=38.12u rfmode=0
+M$48 VAPWR ui_in[0] analog_2 VAPWR sg13_lv_pmos L=1u W=120u AS=22.8p AD=22.8p
++ PS=127.6u PD=127.6u rfmode=0
+M$70 VAPWR analog_0 analog_1 VAPWR sg13_lv_pmos L=1u W=120u AS=22.8p AD=22.8p
++ PS=127.6u PD=127.6u rfmode=0
+.ENDS heichips26_analog_project

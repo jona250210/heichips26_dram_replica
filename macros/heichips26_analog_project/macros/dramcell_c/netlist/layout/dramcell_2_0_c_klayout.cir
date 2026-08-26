@@ -1,0 +1,28 @@
+* Extracted by KLayout with SG13CMOS5L LVS runset on : 26/08/2026 15:27
+
+.SUBCKT dramcell_2_0_c NodeC PreCh RBL RWL VGND VPWR WBL WWL
+M$1 VGND NodeC \$18 VGND sg13_lv_nmos L=0.13u W=0.3u AS=0.102p AD=0.057p
++ PS=1.28u PD=0.68u rfmode=0
+M$2 \$18 RWL \$13 VGND sg13_lv_nmos L=0.13u W=0.9u AS=0.171p AD=0.216p PS=2.04u
++ PD=2.64u rfmode=0
+M$5 \$9 WWL NodeC VGND sg13_lv_nmos L=0.13u W=0.3u AS=0.102p AD=0.102p PS=1.28u
++ PD=1.28u rfmode=0
+M$6 VPWR \$13 RBL VPWR sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$7 \$9 \$23 RBL VPWR sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$8 VPWR RWL \$23 VPWR sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$9 VPWR PreCh \$13 VPWR sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$10 WBL RWL \$9 VPWR sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$11 VGND \$13 RBL VGND sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$12 VGND RWL \$23 VGND sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$13 WBL \$23 \$9 VGND sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$14 \$9 RWL RBL VGND sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+.ENDS dramcell_2_0_c

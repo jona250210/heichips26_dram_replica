@@ -1,0 +1,78 @@
+** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/testbenches/xschem/dramcell_tb_tran.sch
+.SUBCKT dramcell_tb_tran
+
+vpulse WWL GND pulse(0 {VPWR} 50050n 1n 1n 10n 100u)
+VPWR VPWR GND {VPWR}
+vpulse1 WBL GND pulse(0 {VPWR} 50u 1n 1n 100n 400u)
+vpulse3 RWL GND pulse(0 {VPWR} 150040n 1n 1n 30n 200u)
+MM1 RBL ~RBL VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM4 RBL ~RBL GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM6 CWBL RWL WBL VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM7 WBL ~ReFr CWBL GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM8 ~ReFr RWL VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM9 ~ReFr RWL GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM3 CWBL ~ReFr RBL VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM5 RBL RWL CWBL GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM2 ~RBL PreCh VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+vpulse2 PreCh GND pulse({VPWR} 0 150008n 1n 1n 10n 200u)
+x3 WWL CWBL RWL ~RBL GND NodeC dramcell_2_0_pex
+**** begin user architecture code
+
+
+*.include ../../../netlist/pex/dramcell_2_0_magic_pex_3.spice
+*.include heichips26_analog_project.save
+.param VPWR=1.5
+.csparam VPWR=VPWR
+.param VAPWR=1.5
+.csparam VAPWR=VAPWR
+.param Vcm=VAPWR/2
+.param temp=27
+.param Cload=10p
+.param Rload=1k
+.param w=25u
+.param l=0.13u
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-12 gmin=1e-12
+.control
+save all
+
+* Operating Point Analysis
+op
+remzerovec
+write dramcell_tb_tran.raw
+set appendwrite
+
+* Transient Analysis
+tran 10n 800u
+write dramcell_tb_tran.raw
+
+unset appendwrite
+set wr_vecnames
+set wr_singlescale
+*wrdata ../plot_simulations/data/dramcell_tb_tran.txt
+
+*quit
+.endc
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
+
+**** end user architecture code
+.ENDS
+
+* expanding   symbol:  dramcell_2_0.sym # of pins=6
+** sym_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/schematic/xschem/dramcell_2_0.sym
+** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/schematic/xschem/dramcell_2_0.sch
+.SUBCKT dramcell_2_0 WWL WBL RWL RBL VGND NodeC
+*.PININFO RBL:O WWL:I WBL:I RWL:I VGND:B NodeC:B
+MM4 WBL WWL NodeC VGND sg13_lv_nmos w=0.3u l=0.13u ng=1
+MM5 net1 NodeC VGND VGND sg13_lv_nmos w=0.3u l=0.13u ng=1
+MM6 RBL RWL net1 VGND sg13_lv_nmos w=0.9u l=0.13u ng=3
+*connector(6,1) ?1 VGND ?1 WWL ?1 WBL ?1 RWL ?1 RBL ?1 NodeC
+.ENDS
+
+.GLOBAL GND

@@ -1,0 +1,17 @@
+** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/schematic/xschem/dramcell_2_0_c.sch
+.subckt dramcell_2_0_c VPWR PreCh RBL WWL WBL RWL VGND NodeC
+*.PININFO RBL:O WWL:I WBL:I RWL:I VGND:B NodeC:B VPWR:B PreCh:I
+MM4 CWBL WWL NodeC VGND sg13_lv_nmos w=0.3u l=0.13u ng=1
+MM5 net1 NodeC VGND VGND sg13_lv_nmos w=0.3u l=0.13u ng=1
+MM6 nRBL RWL net1 VGND sg13_lv_nmos w=0.9u l=0.13u ng=3
+MM2 nRBL PreCh VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM1 CWBL RWL WBL VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM7 WBL nReFr CWBL VGND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM3 CWBL nReFr RBL VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM8 RBL RWL CWBL VGND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM9 nReFr RWL VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM10 nReFr RWL VGND VGND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM11 RBL nRBL VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM12 RBL nRBL VGND VGND sg13_lv_nmos w=0.15u l=0.13u ng=1
+*connector(8,1) ?1 VPWR ?1 VGND ?1 PreCh ?1 WWL ?1 WBL ?1 RWL ?1 RBL ?1 NodeC
+.ends

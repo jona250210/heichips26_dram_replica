@@ -4,7 +4,7 @@
 MAKEFILE_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 # Variables
-TOP = dramcell_2_0_c
+TOP = dramcell_c
 
 .DEFAULT_GOAL := help
 
@@ -22,15 +22,18 @@ EXT_MODE ?= 3
 
 # full-RC extresist threshold in mOhm (sak-pex.sh -t, only used in EXT_MODE=3; default: 10000 = 10 Ohm)
 # Override with: make <target> THRESHOLD=<mOhm>
-THRESHOLD ?= 10000
+# Old: THRESHOLD ?= 10000
+THRESHOLD ?= 0
 
 # full-RC extresist minres in mOhm (sak-pex.sh -r, only used in EXT_MODE=3; default: 1000 = 1 Ohm)
 # Override with: make <target> MINRES=<mOhm>
-MINRES ?= 1000
+# Old: MINRES ?= 1000
+MINRES ?= 0
 
 # full-RC extresist mindelay in ps (sak-pex.sh -y, only used in EXT_MODE=3; default: 1; 0 = gate by resistance)
 # Override with: make <target> MINDELAY=<ps>
-MINDELAY ?= 1
+# Old: MINDELAY ?= 1
+MINDELAY ?= 0
 
 # KLayout DRC level: precheck, macro, or regular (sak-drc.sh -l, only used by klayout-drc; default: macro)
 # Override with: make <target> DRC_LEVEL=<precheck|macro|regular>

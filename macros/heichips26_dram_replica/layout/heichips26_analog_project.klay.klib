@@ -1,0 +1,9 @@
+{
+    "technology": "",
+    "statements": [
+        {
+            "lib_name": "inverter",
+            "lib_path": "$HOME/git/heichips26_dram_replica/macros/heichips26_dram_replica/macros/dramcell_c/layout/dramcell_c.gds"
+        }
+    ]
+}

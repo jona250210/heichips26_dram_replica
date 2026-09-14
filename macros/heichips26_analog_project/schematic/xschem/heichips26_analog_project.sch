@@ -5,20 +5,28 @@ V {}
 S {}
 F {}
 E {}
-P 4 1 2030 -1280 {}
-P 4 5 2040 -1280 2440 -1280 2440 -500 2040 -500 2040 -1280 {fill = false
+P 4 1 1710 -1280 {}
+P 4 5 1720 -1280 2120 -1280 2120 -500 1720 -500 1720 -1280 {fill = false
 dash = 16}
 T {HeiChips 2026 - Analog Project} 830 -1700 0 0 1 1 {}
-T {Decoupling} 2050 -1270 0 0 0.4 0.4 {}
-N 2240 -800 2240 -760 {lab=VAPWR}
-N 2180 -720 2210 -720 {lab=VGND}
-N 2180 -720 2180 -620 {lab=VGND}
-N 2240 -620 2300 -620 {lab=VGND}
-N 2300 -720 2300 -620 {lab=VGND}
-N 2270 -720 2300 -720 {lab=VGND}
-N 2240 -620 2240 -580 {lab=VGND}
-N 2240 -720 2240 -620 {lab=VGND}
-N 2180 -620 2240 -620 {lab=VGND}
+T {Decoupling} 1730 -1270 0 0 0.4 0.4 {}
+N 1200 -800 1200 -780 {lab=VAPWR}
+N 1200 -700 1200 -680 {lab=VGND}
+N 1200 -1080 1200 -1060 {lab=VAPWR}
+N 1200 -980 1200 -960 {lab=VGND}
+N 1080 -740 1140 -740 {lab=analog_0}
+N 1080 -1020 1140 -1020 {lab=ui_in[0]}
+N 1280 -1020 1340 -1020 {lab=analog_2}
+N 1280 -740 1340 -740 {lab=analog_1}
+N 1920 -800 1920 -760 {lab=VAPWR}
+N 1860 -720 1890 -720 {lab=VGND}
+N 1860 -720 1860 -620 {lab=VGND}
+N 1920 -620 1980 -620 {lab=VGND}
+N 1980 -720 1980 -620 {lab=VGND}
+N 1950 -720 1980 -720 {lab=VGND}
+N 1920 -620 1920 -580 {lab=VGND}
+N 1920 -720 1920 -620 {lab=VGND}
+N 1860 -620 1920 -620 {lab=VGND}
 N 500 -1320 540 -1320 {lab=clk}
 N 500 -1300 540 -1300 {lab=ena}
 N 500 -1340 540 -1340 {lab=rst_n}
@@ -68,30 +76,20 @@ N 500 -1420 540 -1420 {lab=VPWR}
 N 500 -360 540 -360 {lab=analog_2}
 N 500 -340 540 -340 {lab=analog_1}
 N 500 -320 540 -320 {lab=analog_0}
-N 2240 -1180 2240 -1140 {lab=VPWR}
-N 2180 -1100 2210 -1100 {lab=VGND}
-N 2180 -1100 2180 -1000 {lab=VGND}
-N 2240 -1000 2300 -1000 {lab=VGND}
-N 2300 -1100 2300 -1000 {lab=VGND}
-N 2270 -1100 2300 -1100 {lab=VGND}
-N 2240 -1000 2240 -960 {lab=VGND}
-N 2240 -1100 2240 -1000 {lab=VGND}
-N 2180 -1000 2240 -1000 {lab=VGND}
-N 1310 -900 1310 -870 {lab=VGND}
-N 1070 -930 1110 -930 {lab=ui_in[0]}
-N 1310 -1220 1310 -1190 {lab=analog_1}
-N 1140 -890 1140 -850 {lab=ui_in[2]}
-N 1240 -1160 1270 -1160 {lab=ui_in[1]}
-N 1310 -1160 1390 -1160 {lab=VPWR}
-N 1140 -1040 1140 -930 {lab=VPWR}
-N 1310 -930 1380 -930 {lab=VPWR}
-N 1310 -1130 1310 -960 {lab=#net1}
-N 1230 -930 1270 -930 {lab=analog_2}
-N 1230 -980 1230 -930 {lab=analog_2}
-N 1170 -930 1230 -930 {lab=analog_2}
-C {title-3.sym} 0 0 0 0 {name=l1 author="Barnabas Hidvegi" rev=1.0 lock=true}
-C {lab_pin.sym} 2240 -800 1 0 {name=p25 sig_type=std_logic lab=VAPWR}
-C {lab_pin.sym} 2240 -580 3 0 {name=p26 sig_type=std_logic lab=VGND}
+N 1920 -1180 1920 -1140 {lab=VPWR}
+N 1860 -1100 1890 -1100 {lab=VGND}
+N 1860 -1100 1860 -1000 {lab=VGND}
+N 1920 -1000 1980 -1000 {lab=VGND}
+N 1980 -1100 1980 -1000 {lab=VGND}
+N 1950 -1100 1980 -1100 {lab=VGND}
+N 1920 -1000 1920 -960 {lab=VGND}
+N 1920 -1100 1920 -1000 {lab=VGND}
+N 1860 -1000 1920 -1000 {lab=VGND}
+C {title-3.sym} 0 0 0 0 {name=l1 author="Simon Dorrer" rev=1.0 lock=true}
+C {inverter.sym} 1200 -740 0 0 {name=x3}
+C {inverter.sym} 1200 -1020 0 0 {name=x4}
+C {lab_pin.sym} 1920 -800 1 0 {name=p25 sig_type=std_logic lab=VAPWR}
+C {lab_pin.sym} 1920 -580 3 0 {name=p26 sig_type=std_logic lab=VGND}
 C {devices/ipin.sym} 500 -1340 2 1 {name=p30 lab=rst_n}
 C {devices/ipin.sym} 500 -1320 2 1 {name=p31 lab=clk}
 C {devices/ipin.sym} 500 -1300 2 1 {name=p32 lab=ena}
@@ -149,9 +147,9 @@ C {conn_3x1.sym} 560 -340 0 1 {name=c10 footprint=connector(3,1)}
 C {devices/iopin.sym} 500 -360 2 0 {name=p64 lab=analog_2}
 C {devices/iopin.sym} 500 -340 2 0 {name=p65 lab=analog_1}
 C {devices/iopin.sym} 500 -320 2 0 {name=p66 lab=analog_0}
-C {lab_pin.sym} 2240 -1180 1 0 {name=p3 sig_type=std_logic lab=VPWR}
-C {lab_pin.sym} 2240 -960 3 0 {name=p4 sig_type=std_logic lab=VGND}
-C {sg13cmos5l_pr/sg13_lv_pmos.sym} 2240 -1120 1 0 {name=M4
+C {lab_pin.sym} 1920 -1180 1 0 {name=p3 sig_type=std_logic lab=VPWR}
+C {lab_pin.sym} 1920 -960 3 0 {name=p4 sig_type=std_logic lab=VGND}
+C {sg13cmos5l_pr/sg13_lv_pmos.sym} 1920 -1120 1 0 {name=M1
 l=10.0u
 w=10.0u
 ng=1
@@ -160,7 +158,7 @@ mm_ok=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {sg13cmos5l_pr/sg13_lv_pmos.sym} 2240 -740 1 0 {name=M5
+C {sg13cmos5l_pr/sg13_lv_pmos.sym} 1920 -740 1 0 {name=M2
 l=10.0u
 w=10.0u
 ng=1
@@ -169,45 +167,11 @@ mm_ok=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {sg13cmos5l_pr/sg13_lv_pmos.sym} 1140 -910 3 0 {name=M2
-l=0.13u
-w=0.15u
-ng=1
-m=1
-mm_ok=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13cmos5l_pr/sg13_lv_pmos.sym} 1290 -1160 0 0 {name=M3
-l=0.13u
-w=0.15u
-ng=1
-m=1
-mm_ok=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {lab_pin.sym} 1310 -870 3 0 {name=p20 sig_type=std_logic lab=VGND}
-C {lab_pin.sym} 1070 -930 0 0 {name=p21 sig_type=std_logic lab=ui_in[0]}
-C {lab_pin.sym} 1240 -1160 0 0 {name=p23 sig_type=std_logic lab=ui_in[1]}
-C {lab_pin.sym} 1140 -850 3 0 {name=p24 sig_type=std_logic lab=ui_in[2]}
-C {lab_pin.sym} 1310 -1220 1 0 {name=p67 sig_type=std_logic lab=analog_1
-}
-C {lab_pin.sym} 1230 -980 1 0 {name=p22 sig_type=std_logic lab=analog_2
-}
-C {lab_pin.sym} 1140 -1040 1 0 {name=p80 sig_type=std_logic lab=VPWR
-}
-C {lab_pin.sym} 1380 -930 2 0 {name=p81 sig_type=std_logic lab=VPWR
-}
-C {lab_pin.sym} 1390 -1160 2 0 {name=p82 sig_type=std_logic lab=VPWR
-}
-C {sg13cmos5l_pr/sg13_lv_pmos.sym} 1290 -930 0 0 {name=M1
-l=\{l\}
-w=\{w\}
-ng=1
-m=1
-mm_ok=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13cmos5l_pr/annotate_fet_params.sym} 1410 -880 0 0 {name="annot1" ref="M1"}
+C {lab_pin.sym} 1200 -1080 1 0 {name=p1 sig_type=std_logic lab=VAPWR}
+C {lab_pin.sym} 1200 -800 1 0 {name=p5 sig_type=std_logic lab=VAPWR}
+C {lab_pin.sym} 1200 -960 3 0 {name=p11 sig_type=std_logic lab=VGND}
+C {lab_pin.sym} 1200 -680 3 0 {name=p19 sig_type=std_logic lab=VGND}
+C {lab_pin.sym} 1080 -1020 0 0 {name=p2 sig_type=std_logic lab=ui_in[0]}
+C {lab_pin.sym} 1340 -1020 0 1 {name=p6 sig_type=std_logic lab=analog_2}
+C {lab_pin.sym} 1080 -740 0 0 {name=p7 sig_type=std_logic lab=analog_0}
+C {lab_pin.sym} 1340 -740 0 1 {name=p10 sig_type=std_logic lab=analog_1}

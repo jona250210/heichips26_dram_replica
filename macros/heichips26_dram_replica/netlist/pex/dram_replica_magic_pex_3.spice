@@ -1,0 +1,129 @@
+* PEX produced on Mon Sep 14 22:51:38 CEST 2026 using scripts/sak-pex.sh with m=3 and s=1 (extresist threshold=10000 mOhm, minres=1000 mOhm, mindelay=1 ps)
+* NGSPICE file created from dram_replica_pex.ext - technology: ihp-sg13cmos5l
+
+.subckt dram_replica_pex VPWR VAPWR VGND rst_n clk ena uio_in[7] uio_in[6]
++ uio_in[5] uio_in[4] uio_in[3] uio_in[2] uio_in[1] uio_in[0] ui_in[7] ui_in[6]
++ ui_in[5] ui_in[4] ui_in[3] ui_in[2] ui_in[1] ui_in[0] uio_oe[7] uio_oe[6]
++ uio_oe[5] uio_oe[4] uio_oe[3] uio_oe[2] uio_oe[1] uio_oe[0] uio_out[7]
++ uio_out[6] uio_out[5] uio_out[4] uio_out[3] uio_out[2] uio_out[1] uio_out[0]
++ uo_out[7] uo_out[6] uo_out[5] uo_out[4] uo_out[3] uo_out[2] uo_out[1]
++ uo_out[0]
+X0 a_1790_1879# ui_in[2] VGND VGND.t1 sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X1 a_2816_1865# ui_in[1] a_2098_1879# VGND.t10 sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.13u
+X2 uo_out[0] a_3132_1864# VGND VGND.t7 sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X3 a_3132_1864# ui_in[2] a_3030_1864# VGND.t3 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.13u
+X4 a_2098_1879# ui_in[2] uo_out[0] VGND.t2 sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X5 a_2098_1879# ui_in[2] ui_in[0] VPWR sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X6 VGND.t0 VPWR VGND.t0 VGND.t8 sg13_lv_pmos ad=3.4p pd=20.68u as=0 ps=0 w=10u l=10u
+X7 a_3030_1864# ui_in[2] a_3132_1864# VGND.t4 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.13u
+X8 a_1790_1879# ui_in[2] VPWR VPWR sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X9 uo_out[0] a_3132_1864# VPWR VPWR sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X10 a_3132_1864# ui_in[3] VPWR VPWR sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X11 a_2098_1879# a_1790_1879# uo_out[0] VPWR sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X12 a_2098_1879# a_1790_1879# ui_in[0] VGND.t9 sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X13 a_3030_1864# a_2816_1865# VGND VGND.t6 sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.13u
+X14 a_3132_1864# ui_in[2] a_3030_1864# VGND.t5 sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.13u
+X15 VGND.t0 VAPWR VGND.t0 VGND.t0 sg13_lv_pmos ad=3.4p pd=20.68u as=0 ps=0 w=10u l=10u
+R0 VGND.t7 VGND.t1 15238.2
+R1 VGND.t1 VGND.t9 417.344
+R2 VGND.t9 VGND.t2 417.344
+R3 VGND VGND.t7 217.821
+R4 VGND.t4 VGND.n1 77.2363
+R5 VGND.n1 VGND.t3 60.9761
+R6 VGND.t5 VGND 24.4718
+R7 VGND.n0 VGND.t6 17.4231
+R8 VGND VGND.t4 22.3183
+R9 VGND VGND.t10 24.0409
+R10 VGND.t2 VGND 217.819
+R11 VGND VGND.n1 8.5005
+R12 VGND.t8 VGND.t0 0.716537
+R13 VGND.n0 VGND.t3 38.4795
+R14 VGND VGND.t0 3.32119
+R15 VGND VGND.n0 1.88061
+C0 ui_in[2] ui_in[0] 0.1152f
+C1 ui_in[2] ui_in[3] 6.01058f
+C2 ui_in[2] a_1790_1879# 0.45597f
+C3 a_2098_1879# ui_in[2] 0.0857f
+C4 a_3132_1864# a_3030_1864# 0.28368f
+C5 a_3132_1864# uo_out[0] 0.15712f
+C6 a_3132_1864# ui_in[3] 0.03739f
+C7 ui_in[2] VPWR 0.24973f
+C8 a_3132_1864# a_1790_1879# 0.01229f
+C9 ui_in[1] uo_out[0] 0.06036f
+C10 a_3132_1864# VPWR 0.37245f
+C11 ui_in[1] ui_in[0] 9.73224f
+C12 ui_in[3] ui_in[1] 0.06418f
+C13 ui_in[3] a_3030_1864# 0.01433f
+C14 uo_out[0] ui_in[0] 0.06382f
+C15 ui_in[3] uo_out[0] 0.30695f
+C16 a_2816_1865# ui_in[2] 0.05334f
+C17 a_2098_1879# ui_in[1] 0.51602f
+C18 a_2098_1879# a_3030_1864# 0.01254f
+C19 a_1790_1879# uo_out[0] 0.39457f
+C20 a_2098_1879# uo_out[0] 0.34131f
+C21 a_1790_1879# ui_in[0] 0.14151f
+C22 ui_in[3] a_1790_1879# 0.01326f
+C23 a_2098_1879# ui_in[0] 0.29526f
+C24 a_2098_1879# ui_in[3] 0.02044f
+C25 a_2098_1879# a_1790_1879# 0.36549f
+C26 ui_in[1] VPWR 0.01413f
+C27 a_3030_1864# VPWR 0.02093f
+C28 VPWR uo_out[0] 1.11671f
+C29 VPWR ui_in[0] 0.04984f
+C30 ui_in[3] VPWR 0.61725f
+C31 a_1790_1879# VPWR 0.21003f
+C32 a_2098_1879# VPWR 0.16107f
+C33 a_2816_1865# ui_in[1] 0.02115f
+C34 a_3132_1864# ui_in[2] 0.1002f
+C35 uio_oe[7] ui_in[0] 0.01618f
+C36 a_2098_1879# a_2816_1865# 0.05039f
+C37 ui_in[2] ui_in[1] 7.08533f
+C38 ui_in[2] a_3030_1864# 0.06885f
+C39 ui_in[2] uo_out[0] 0.82182f
+C40 uo_out[1] VGND 0.02995f
+C41 uo_out[2] VGND 0.02995f
+C42 uo_out[3] VGND 0.02995f
+C43 uo_out[4] VGND 0.02995f
+C44 uo_out[5] VGND 0.02995f
+C45 uo_out[6] VGND 0.02995f
+C46 uo_out[7] VGND 0.02995f
+C47 uio_out[0] VGND 0.02995f
+C48 uio_out[1] VGND 0.02995f
+C49 uio_out[2] VGND 0.02995f
+C50 uio_out[3] VGND 0.02995f
+C51 uio_out[4] VGND 0.02995f
+C52 uio_out[5] VGND 0.02995f
+C53 uio_out[6] VGND 0.02995f
+C54 uio_out[7] VGND 0.02995f
+C55 uio_oe[0] VGND 0.02995f
+C56 uio_oe[1] VGND 0.02995f
+C57 uio_oe[2] VGND 0.02995f
+C58 uio_oe[3] VGND 0.02995f
+C59 uio_oe[4] VGND 0.02995f
+C60 uio_oe[5] VGND 0.02995f
+C61 uio_oe[6] VGND 0.02995f
+C62 uio_oe[7] VGND 0.02995f
+C63 ui_in[4] VGND 0.03799f
+C64 ui_in[5] VGND 0.03799f
+C65 ui_in[6] VGND 0.03799f
+C66 ui_in[7] VGND 0.03799f
+C67 uio_in[0] VGND 0.03799f
+C68 uio_in[1] VGND 0.03799f
+C69 uio_in[2] VGND 0.03799f
+C70 uio_in[3] VGND 0.03799f
+C71 uio_in[4] VGND 0.03799f
+C72 uio_in[5] VGND 0.03799f
+C73 uio_in[6] VGND 0.03799f
+C74 uio_in[7] VGND 0.03799f
+C75 ena VGND 0.03799f
+C76 clk VGND 0.03799f
+C77 rst_n VGND 0.04448f
+C78 uo_out[0] VGND 2.4659f
+C79 ui_in[0] VGND 4.44618f
+C80 VPWR VGND 2.67042f
+C81 a_3030_1864# VGND 0.89837f
+C82 a_3132_1864# VGND 2.67042f
+C83 a_2098_1879# VGND 2.64582f
+C84 VGND.t0 VGND 0.11074p
+.ends
+

@@ -19,6 +19,8 @@
  <cell-search-as-expressions>true</cell-search-as-expressions>
  <cell-search-as-filter>false</cell-search-as-filter>
  <cell-search-case-sensitive>true</cell-search-case-sensitive>
+ <cell-selection-search-case-sensitive>true</cell-selection-search-case-sensitive>
+ <cell-selection-search-use-expression>true</cell-selection-search-use-expression>
  <child-context-color>auto</child-context-color>
  <child-context-dimming>50</child-context-dimming>
  <child-context-enabled>false</child-context-enabled>
@@ -92,12 +94,12 @@
  <edit-path-ext-type>flush</edit-path-ext-type>
  <edit-path-ext-var-begin>0.0</edit-path-ext-var-begin>
  <edit-path-ext-var-end>0.0</edit-path-ext-var-end>
- <edit-path-width>0.13</edit-path-width>
+ <edit-path-width>0.29</edit-path-width>
  <edit-pcell-lazy-eval-mode>-1</edit-pcell-lazy-eval-mode>
  <edit-pcell-show-parameter-names>false</edit-pcell-show-parameter-names>
- <edit-recent-inst-param>SG13_dev,via_stack,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,via_stack,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,ptap1,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,ntap1,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,pmos,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_native_pcell_lib,Via,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,rsil,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,sealring,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','!',</edit-recent-inst-param>
- <edit-recent-path-param>'5/0','0.13',flush,'0.0','0.0',;'10/0','0.2',flush,'0.0','0.0',;'30/0','0.2',flush,'0.0','0.0',;'30/0','0.29',flush,'0.0','0.0',;'8/0','0.16',flush,'0.0','0.0',;'5/0','0.3',flush,'0.0','0.0',;'5/0','0.16',flush,'0.0','0.0',;'Metal1.drawing (8/0)','0.16',flush,'0.0','0.0',;'GatPoly.drawing (5/0)','0.13',flush,'0.0','0.0',;'Cont.drawing (6/0)','0.16',flush,'0.0','0.0',;'TEXT.drawing (63/0)','0.13',flush,'0.0','0.0',;'GatPoly.pin (5/2)','0.13',flush,'0.0','0.0',</edit-recent-path-param>
- <edit-recent-shape-param>'10/0',;'8/0',;'8/2',;'30/0',;'40/0',;'14/0',;'5/0',;'31/0',;'Metal2.drawing (10/0)',;'19/0',;'29/0',;'30/2',;'6/0',;'Metal1.drawing (8/0)',;'GatPoly.drawing (5/0)',;'Substrate.drawing (40/0)',;'pSD.drawing (14/0)',;'Activ.drawing (1/0)',;'Cont.drawing (6/0)',</edit-recent-shape-param>
+ <edit-recent-inst-param>SG13_dev,via_stack,'0',false,'1',false,'1','0','0','1','0','0','!',;inverter,dramcell_c,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,via_stack,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','',;SG13_dev,ptap1,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,ntap1,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,pmos,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_native_pcell_lib,Via,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,rsil,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,sealring,'0',false,'1',false,'1','0','0','1','0','0','!',;SG13_dev,nmos,'0',false,'1',false,'1','0','0','1','0','0','!',</edit-recent-inst-param>
+ <edit-recent-path-param>'30/0','0.29',flush,'0.0','0.0',;'50/0','0.29',flush,'0.0','0.0',;'30/0','0.38',flush,'0.0','0.0',;'5/0','0.13',flush,'0.0','0.0',;'10/0','0.2',flush,'0.0','0.0',;'30/0','0.2',flush,'0.0','0.0',;'8/0','0.16',flush,'0.0','0.0',;'5/0','0.3',flush,'0.0','0.0',;'5/0','0.16',flush,'0.0','0.0',;'Metal1.drawing (8/0)','0.16',flush,'0.0','0.0',;'GatPoly.drawing (5/0)','0.13',flush,'0.0','0.0',;'Cont.drawing (6/0)','0.16',flush,'0.0','0.0',;'TEXT.drawing (63/0)','0.13',flush,'0.0','0.0',;'GatPoly.pin (5/2)','0.13',flush,'0.0','0.0',</edit-recent-path-param>
+ <edit-recent-shape-param>'30/0',;'50/0',;'10/0',;'8/0',;'8/2',;'40/0',;'14/0',;'5/0',;'31/0',;'Metal2.drawing (10/0)',;'19/0',;'29/0',;'30/2',;'6/0',;'Metal1.drawing (8/0)',;'GatPoly.drawing (5/0)',;'Substrate.drawing (40/0)',;'pSD.drawing (14/0)',;'Activ.drawing (1/0)',;'Cont.drawing (6/0)',</edit-recent-shape-param>
  <edit-recent-text-param>'10/25',CWBL,'0',left,bottom,;'8/25',NodeC,'0',left,bottom,;'8/0',NodeC,'0',left,bottom,;'63/0','sub!','0',left,bottom,;'8/25',RBL,'0',left,bottom,;'8/25',RWL,'0',left,bottom,;'8/25',WBL,'0',left,bottom,;'8/25',ABC,'0',left,bottom,;'30/25',ABC,'0',left,bottom,</edit-recent-text-param>
  <edit-show-shapes-of-instances>true</edit-show-shapes-of-instances>
  <edit-snap-objects-to-grid>true</edit-snap-objects-to-grid>
@@ -128,7 +130,7 @@
  <guiding-shape-line-width>1</guiding-shape-line-width>
  <guiding-shape-vertex-size>5</guiding-shape-vertex-size>
  <guiding-shape-visible>true</guiding-shape-visible>
- <hide-empty-layers>true</hide-empty-layers>
+ <hide-empty-layers>false</hide-empty-layers>
  <highres-mode>false</highres-mode>
  <image-cache-size>1</image-cache-size>
  <images-visible>true</images-visible>
@@ -948,7 +950,7 @@ tools_menu.drc.macro_in_menu_drc:false
 </menu-items-hidden>
  <min-inst-label-size>16</min-inst-label-size>
  <mouse-wheel-mode>0</mouse-wheel-mode>
- <mru>'/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/layout/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/inverter/layout/inverter.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_digital_project/final/gds/heichips26_digital_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0_control.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/inverter.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_c/layout/dramcell_c.gds'@'sg13cmos5l'</mru>
+ <mru>'/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/layout/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/inverter/layout/inverter.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_digital_project/final/gds/heichips26_digital_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0_control.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/inverter.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_c/layout/dramcell_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/final/gds/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/macros/dramcell_c/layout/dramcell_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/final/gds/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/floorplan/heichips26_template_tiny.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/layout/dramcell_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/layout/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/layout/heichips26_analog_project.klay.gds'@'sg13cmos5l'</mru>
  <mru-bookmarks/>
  <mru-layer-properties/>
  <mru-sessions/>
@@ -981,7 +983,7 @@ tools_menu.drc.macro_in_menu_drc:false
  <rdb-tree-state>+by-cell,-by-category</rdb-tree-state>
  <rdb-window-dim>1</rdb-window-dim>
  <rdb-window-mode>fit-marker</rdb-window-mode>
- <rdb-window-state-v2>MarkerBrowserDialog="AdnQywADAAAAAAAAAAAAAAAABLsAAAIoAAAAAAAAAAAAAAS7AAACKAAAAAAAAAAADXAAAAAAAAAAAAAABLsAAAIo";splitter_2="AAAA/wAAAAEAAAACAAADiwAAAgUB/////wEAAAABAA==";splitter="AAAA/wAAAAEAAAACAAAA8QAAAPkB/////wEAAAACAA==";markers_list="AAAA/wAAAAAAAAABAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAAAAAAAAgMAAAAEAQEAAQAAAAAAAAAAAAAAAGQAAAAYAAAAgQAAAAAAAAAEAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAA1wAAAAEAAAAAAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";directory_tree="AAAA/wAAAAAAAAABAAAAAQAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAp8AAAACAQEAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAACAAAAZAAAAAEAAAAAAAACOwAAAAEAAAAAAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";</rdb-window-state-v2>
+ <rdb-window-state-v2>MarkerBrowserDialog="AdnQywADAAD////9////4gAAAgUAAAIrAAAAAAAAAAAAAAICAAACKAAAAAEAAAAADwAAAAAAAAAAAAAAAgIAAAIo";splitter_2="AAAA/wAAAAEAAAACAAADiwAAAgUB/////wEAAAABAA==";splitter="AAAA/wAAAAEAAAACAAAA8QAAAPkB/////wEAAAACAA==";markers_list="AAAA/wAAAAAAAAABAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAEAQEAAQAAAAAAAAAAAAAAAGQAAAAYAAAAgQAAAAAAAAAEAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";directory_tree="AAAA/wAAAAAAAAABAAAAAQAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAMgAAAACAQEAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAACAAAAZAAAAAEAAAAAAAAAZAAAAAEAAAAAAAAD6AAAAABkAAAAAAAAAAAAAAAAAAAAAQ==";</rdb-window-state-v2>
  <reader-options-show-always>false</reader-options-show-always>
  <ruler-color>#ff8000</ruler-color>
  <ruler-grid-snap>true</ruler-grid-snap>
@@ -1029,9 +1031,9 @@ tools_menu.drc.macro_in_menu_drc:false
  <stream-import-spec2>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;stream-import-data&gt;
  &lt;files&gt;
-  &lt;file&gt;/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0.gds&lt;/file&gt;
+  &lt;file&gt;/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/layout/dramcell_c.gds&lt;/file&gt;
  &lt;/files&gt;
- &lt;cell-name/&gt;
+ &lt;cell-name&gt;dramcell_c&lt;/cell-name&gt;
  &lt;layer-offset/&gt;
  &lt;layer-mode&gt;original&lt;/layer-mode&gt;
  &lt;import-mode&gt;merge&lt;/import-mode&gt;
@@ -1318,8 +1320,8 @@ tools_menu.drc.macro_in_menu_drc:false
  <transient-sel-line-style>-1</transient-sel-line-style>
  <transient-sel-line-width>1</transient-sel-line-width>
  <transient-sel-vertex-size>0</transient-sel-vertex-size>
- <window-geometry>AdnQywADAAD////+////+wAADW0AAAViAAAAAQAAABkAAA1qAAAFXwAAAAACAAAADXAAAAABAAAAGQAADWoAAAVf</window-geometry>
- <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAAGJAAAE5fwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAiQD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAATAAAAQcAAAAQAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAABWQAAAPcAAAAQAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAAJWAAAC2wAAAJYA////AAAAAQAAATgAAATl/AIAAAAD+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAAQAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABMAAAEaQAAABAA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAABLsAAAB2AAAAEAD///8AAAqdAAAE5QAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAABAAAADgB0AG8AbwBsAGIAYQByAQAAAAD/////AAAAAAAAAAA=</window-state>
+ <window-geometry>AdnQywADAAD////9////4gAADvwAAAghAAAAAAAAAAAAAA75AAAIHgAAAAECAAAADwAAAAAAAAAAAAAADvkAAAge</window-geometry>
+ <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAAF1AAAHvfwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAiQD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAATAAAAaIAAAAQAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAB9AAAAYYAAAAQAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAAOAAAAEiQAAAJYA////AAAAAQAAASQAAAe9/AIAAAAD+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAAQAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABMAAAHQQAAABAA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAB5MAAAB2AAAAEAD///8AAAxVAAAHvQAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAABAAAADgB0AG8AbwBsAGIAYQByAQAAAAD/////AAAAAAAAAAA=</window-state>
  <xor-anotb>false</xor-anotb>
  <xor-axorb>true</xor-axorb>
  <xor-bnota>false</xor-bnota>

@@ -1,4 +1,4 @@
-* Extracted by KLayout with SG13CMOS5L LVS runset on : 26/08/2026 17:18
+* Extracted by KLayout with SG13CMOS5L LVS runset on : 14/09/2026 15:23
 
 .SUBCKT dramcell_c NodeC PreCh RBL RWL VGND VPWR WBL WWL
 M$1 VGND NodeC \$18 VGND sg13_lv_nmos L=0.13u W=0.3u AS=0.102p AD=0.057p

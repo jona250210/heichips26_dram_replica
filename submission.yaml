@@ -9,28 +9,35 @@ team-members:
 - Barnabás Hidvégi
 - Abdelaziz Ider
 - Jennifer Muck
-slot-size: small # small, large, tiny
+slot-size: tiny # small, large, tiny
 analog-pins: 0 # 0-3, only for small or tiny projects
-short-description: This is a super cool project!
+short-description: This project attempts to recreate the first ever commercially available DRAM memory, the Intel 1103.
 # Please add the documentation about your project here.
 # Why did you choose to create it? How does it work? How can it be tested, etc.?
 # If your project requires additional external hardware, e.g. a USB port,
 # please mention this so we can consider it when designing the HeiChips PCB.
+
+
+# feel free to modify this ...
 long-description: |
-  Is this thing on?
+  Featuring an 1024 bit storage array, the Intel 1103 DRAM, introduced in 1970, becaume the first widely used, commercially available semiconductor memory device.
+  This project attempts to recreate one of the fundamental building blocks of that memory device, a single storage cell, capable of holding one bit.
+  The implementation abuses parasitic capacitance of one nmos-transistor to hold the bit, consequently requiring refreshes.
+  The precise control timings will be determined after tapeout, though simulation suggest a periodic refresh time of 100us.
+
+  The cell can be controlled via five exposed pins:
+  * ui_in[3]:  PreCh (precharge):     set high before read
+  * ui_in[2]:  RWL (read word line):  set high to read from the cell
+  * ui_in[1]:  WWL (write word line): set high to write to the cell
+  * ui_in[0]:  WBL (write bit line):  set the wanted bit to be stored
+  * uo_out[0]: RBL (read bit line):   outputs the stored bit
+
   
-  This is a super cool project 👏
-  
-  * with
-  * bullet
-  * points
-  
-  **nice** *formatting* and [links](https://heichips.github.io/).
 
 # These paths are used to verify your
 # submission during the precheck.
 # Wildcards are allowed, but there
 # should only be a single match.
-gds-path: macros/heichips26_digital_project/final/gds/*.gds
-lef-path: macros/heichips26_digital_project/final/lef/*.lef
-header-path: macros/heichips26_digital_project/final/vh/*.vh
+gds-path: macros/heichips26_dram_replica/final/gds/*.gds
+lef-path: macros/heichips26_dram_replica/final/lef/*.lef
+header-path: macros/heichips26_dram_replica/final/vh/*.vh

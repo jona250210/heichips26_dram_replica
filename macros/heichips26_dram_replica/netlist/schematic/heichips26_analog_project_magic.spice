@@ -1,0 +1,4 @@
+** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/schematic/xschem/heichips26_analog_project.sch
+.subckt heichips26_analog_project
+
+.ends

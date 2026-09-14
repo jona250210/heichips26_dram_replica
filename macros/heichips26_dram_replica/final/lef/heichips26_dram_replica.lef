@@ -271,6 +271,7 @@ MACRO heichips26_dram_replica
     END
   END uo_out[7]
   PIN VPWR
+    USE POWER ;
     ANTENNAGATEAREA 100.000000 ;
     ANTENNADIFFAREA 11.307300 ;
     PORT
@@ -283,6 +284,7 @@ MACRO heichips26_dram_replica
     END
   END VPWR
   PIN VGND
+    USE GROUND ;
     ANTENNADIFFAREA 57.398998 ;
     PORT
       LAYER Metal3 ;
@@ -293,13 +295,6 @@ MACRO heichips26_dram_replica
         RECT 106.000 0.000 111.000 200.000 ;
     END
   END VGND
-  PIN VAPWR
-    ANTENNAGATEAREA 100.000000 ;
-    PORT
-      LAYER Metal4 ;
-        RECT 112.000 0.000 117.000 200.000 ;
-    END
-  END VAPWR
   OBS
       LAYER GatPoly ;
         RECT 8.380 6.910 134.640 193.770 ;

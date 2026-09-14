@@ -1,0 +1,33 @@
+* Extracted by KLayout with SG13CMOS5L LVS runset on : 15/09/2026 00:13
+
+.SUBCKT heichips26_dram_replica VAPWR VGND VPWR ui_in[0] ui_in[1] ui_in[2]
++ ui_in[3] uo_out[0]
+M$1 VGND \$31 \$25 VGND sg13_lv_nmos L=0.13u W=0.3u AS=0.102p AD=0.057p
++ PS=1.28u PD=0.68u rfmode=0
+M$2 \$25 ui_in[2] \$24 VGND sg13_lv_nmos L=0.13u W=0.9u AS=0.171p AD=0.216p
++ PS=2.04u PD=2.64u rfmode=0
+M$5 \$17 ui_in[1] \$31 VGND sg13_lv_nmos L=0.13u W=0.3u AS=0.102p AD=0.102p
++ PS=1.28u PD=1.28u rfmode=0
+M$6 VPWR \$24 uo_out[0] VPWR sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$7 \$17 \$28 uo_out[0] VPWR sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$8 VPWR ui_in[2] \$28 VPWR sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$9 VPWR ui_in[3] \$24 VPWR sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$10 ui_in[0] ui_in[2] \$17 VPWR sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p
++ AD=0.1005p PS=1.34u PD=1.34u rfmode=0
+M$11 VGND ui_in[2] \$28 VGND sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$12 VGND \$24 uo_out[0] VGND sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p
++ AD=0.1005p PS=1.34u PD=1.34u rfmode=0
+M$13 ui_in[0] \$28 \$17 VGND sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p
++ PS=1.34u PD=1.34u rfmode=0
+M$14 \$17 ui_in[2] uo_out[0] VGND sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p
++ AD=0.1005p PS=1.34u PD=1.34u rfmode=0
+M$15 VGND VPWR VGND VGND sg13_lv_pmos L=10u W=10u AS=3.4p AD=3.4p PS=20.68u
++ PD=20.68u rfmode=0
+M$16 VGND VAPWR VGND VGND sg13_lv_pmos L=10u W=10u AS=3.4p AD=3.4p PS=20.68u
++ PD=20.68u rfmode=0
+.ENDS heichips26_dram_replica

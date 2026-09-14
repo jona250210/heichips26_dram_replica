@@ -1,0 +1,132 @@
+** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/testbenches/xschem/dram_replica_tb_tran.sch
+.SUBCKT dram_replica_tb_tran
+
+vpulse WWL GND pulse(0 {VPWR} 50050n 1n 1n 10n 100u)
+VPWR VPWR GND {VPWR}
+vpulse1 WBL GND pulse(0 {VPWR} 50u 1n 1n 100n 400u)
+vpulse3 RWL GND pulse(0 {VPWR} 150040n 1n 1n 30n 200u)
+vpulse2 PreCh GND pulse({VPWR} 0 150008n 1n 1n 10n 200u)
+x3 VPWR net39 GND net1 net2 net3 net4 net5 net6 net7 net8 net9 net10 net11 net12 net13 net14 net15 RWL WBL WWL PreCh net16 net17
++ net18 net19 net20 net21 net22 net23 net24 net25 net26 net27 net28 net29 net30 net31 net32 net33 net34 net35 net36 net37 net38 RBL
++ heichips26_dram_replica
+* noconn #net1
+* noconn #net2
+* noconn #net3
+* noconn #net4
+* noconn #net5
+* noconn #net6
+* noconn #net7
+* noconn #net8
+* noconn #net9
+* noconn #net10
+* noconn #net11
+* noconn #net12
+* noconn #net13
+* noconn #net14
+* noconn #net15
+* noconn #net16
+* noconn #net17
+* noconn #net18
+* noconn #net19
+* noconn #net20
+* noconn #net21
+* noconn #net22
+* noconn #net23
+* noconn #net24
+* noconn #net25
+* noconn #net26
+* noconn #net27
+* noconn #net28
+* noconn #net29
+* noconn #net30
+* noconn #net31
+* noconn #net32
+* noconn #net33
+* noconn #net34
+* noconn #net35
+* noconn #net36
+* noconn #net37
+* noconn #net38
+**** begin user architecture code
+
+
+*.include ../../../netlist/pex/dramcell_c_magic_pex_3.spice
+*.include heichips26_analog_project.save
+.param VPWR=1.5
+.csparam VPWR=VPWR
+.param VAPWR=1.5
+.csparam VAPWR=VAPWR
+.param Vcm=VAPWR/2
+.param temp=27
+.param Cload=10p
+.param Rload=1k
+.param w=25u
+.param l=0.13u
+.options savecurrents klu method=gear reltol=1e-3 abstol=1e-12 gmin=1e-12
+.control
+save all
+
+* Operating Point Analysis
+op
+remzerovec
+write dram_replica_tb_tran.raw
+set appendwrite
+
+* Transient Analysis
+tran 10n 800u
+write dram_replica_tb_tran.raw
+
+unset appendwrite
+set wr_vecnames
+set wr_singlescale
+*wrdata ../plot_simulations/data/dram_replica_tb_tran.txt
+
+*quit
+.endc
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerDIO.lib dio_tt
+.lib cornerCAP.lib cap_typ
+
+**** end user architecture code
+.ENDS
+
+* expanding   symbol:  heichips26_dram_replica.sym # of pins=46
+** sym_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/schematic/xschem/heichips26_dram_replica.sym
+** sch_path: /home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/schematic/xschem/heichips26_dram_replica.sch
+.SUBCKT heichips26_dram_replica VPWR VAPWR VGND rst_n clk ena uio_in[7] uio_in[6] uio_in[5] uio_in[4] uio_in[3] uio_in[2]
++ uio_in[1] uio_in[0] ui_in[7] ui_in[6] ui_in[5] ui_in[4] ui_in[3] ui_in[2] ui_in[1] ui_in[0] uio_oe[7] uio_oe[6] uio_oe[5] uio_oe[4]
++ uio_oe[3] uio_oe[2] uio_oe[1] uio_oe[0] uio_out[7] uio_out[6] uio_out[5] uio_out[4] uio_out[3] uio_out[2] uio_out[1] uio_out[0] uo_out[7]
++ uo_out[6] uo_out[5] uo_out[4] uo_out[3] uo_out[2] uo_out[1] uo_out[0]
+*.PININFO rst_n:I clk:I ena:I uio_in[7]:I ui_in[7]:I uio_oe[7]:O uio_oe[6]:O uio_oe[5]:O uio_oe[4]:O uio_oe[3]:O uio_oe[2]:O
+*+ uio_oe[1]:O uio_oe[0]:O uio_out[7]:O uio_out[6]:O uio_out[5]:O uio_out[4]:O uio_out[3]:O uio_out[2]:O uio_out[1]:O uio_out[0]:O uo_out[7]:O
+*+ uo_out[6]:O uo_out[5]:O uo_out[4]:O uo_out[3]:O uo_out[2]:O uo_out[1]:O uo_out[0]:O VPWR:B VGND:B VAPWR:B ui_in[6]:I ui_in[5]:I ui_in[4]:I
+*+ ui_in[3]:I ui_in[2]:I ui_in[1]:I ui_in[0]:I uio_in[6]:I uio_in[5]:I uio_in[4]:I uio_in[3]:I uio_in[2]:I uio_in[1]:I uio_in[0]:I
+MM4 CWBL ui_in[1] net2 VGND sg13_lv_nmos w=0.3u l=0.13u ng=1
+MM5 net1 net2 VGND VGND sg13_lv_nmos w=0.3u l=0.13u ng=1
+MM6 nRBL ui_in[2] net1 VGND sg13_lv_nmos w=0.9u l=0.13u ng=3
+MM2 nRBL ui_in[3] VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM1 CWBL ui_in[2] ui_in[0] VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM7 ui_in[0] nReFr CWBL VGND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM3 CWBL nReFr uo_out[0] VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM8 uo_out[0] ui_in[2] CWBL VGND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM9 nReFr ui_in[2] VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM10 nReFr ui_in[2] VGND VGND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM11 uo_out[0] nRBL VPWR VPWR sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM12 uo_out[0] nRBL VGND VGND sg13_lv_nmos w=0.15u l=0.13u ng=1
+*connector(3,1) ?1 rst_n ?1 clk ?1 ena
+*connector(8,1) ?1 uio_in[7] ?1 uio_in[6] ?1 uio_in[5] ?1 uio_in[4] ?1 uio_in[3] ?1 uio_in[2] ?1 uio_in[1] ?1 uio_in[0]
+*connector(8,1) ?1 ui_in[7] ?1 ui_in[6] ?1 ui_in[5] ?1 ui_in[4] ?1 ui_in[3] ?1 ui_in[2] ?1 ui_in[1] ?1 ui_in[0]
+*connector(8,1) ?1 uio_oe[7] ?1 uio_oe[6] ?1 uio_oe[5] ?1 uio_oe[4] ?1 uio_oe[3] ?1 uio_oe[2] ?1 uio_oe[1] ?1 uio_oe[0]
+*connector(8,1) ?1 uio_out[7] ?1 uio_out[6] ?1 uio_out[5] ?1 uio_out[4] ?1 uio_out[3] ?1 uio_out[2] ?1 uio_out[1] ?1 uio_out[0]
+*connector(8,1) ?1 uo_out[7] ?1 uo_out[6] ?1 uo_out[5] ?1 uo_out[4] ?1 uo_out[3] ?1 uo_out[2] ?1 uo_out[1] ?1 uo_out[0]
+*connector(3,1) ?1 VPWR ?1 VAPWR ?1 VGND
+MM13 VGND VPWR VGND VGND sg13_lv_pmos w=10.0u l=10.0u ng=1
+MM14 VGND VAPWR VGND VGND sg13_lv_pmos w=10.0u l=10.0u ng=1
+.ENDS
+
+.GLOBAL GND

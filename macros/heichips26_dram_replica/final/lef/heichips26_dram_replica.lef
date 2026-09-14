@@ -2,9 +2,9 @@ VERSION 5.7 ;
   NOWIREEXTENSIONATPIN ON ;
   DIVIDERCHAR "/" ;
   BUSBITCHARS "[]" ;
-MACRO dram_replica
+MACRO heichips26_dram_replica
   CLASS BLOCK ;
-  FOREIGN dram_replica ;
+  FOREIGN heichips26_dram_replica ;
   ORIGIN 0.000 0.000 ;
   SIZE 200.000 BY 200.000 ;
   PIN clk
@@ -407,6 +407,6 @@ MACRO dram_replica
         RECT 111.210 8.400 111.790 194.690 ;
         RECT 117.210 8.400 133.670 194.690 ;
   END
-END dram_replica
+END heichips26_dram_replica
 END LIBRARY
 

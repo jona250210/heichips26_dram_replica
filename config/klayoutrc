@@ -106,7 +106,7 @@
  <edit-snap-to-objects>true</edit-snap-to-objects>
  <edit-text-halign>left</edit-text-halign>
  <edit-text-size>0</edit-text-size>
- <edit-text-string>NodeC</edit-text-string>
+ <edit-text-string>ABC</edit-text-string>
  <edit-text-valign>bottom</edit-text-valign>
  <edit-top-level-selection>true</edit-top-level-selection>
  <empty-cell-dimension>4</empty-cell-dimension>
@@ -130,7 +130,7 @@
  <guiding-shape-line-width>1</guiding-shape-line-width>
  <guiding-shape-vertex-size>5</guiding-shape-vertex-size>
  <guiding-shape-visible>true</guiding-shape-visible>
- <hide-empty-layers>false</hide-empty-layers>
+ <hide-empty-layers>true</hide-empty-layers>
  <highres-mode>false</highres-mode>
  <image-cache-size>1</image-cache-size>
  <images-visible>true</images-visible>
@@ -950,7 +950,7 @@ tools_menu.drc.macro_in_menu_drc:false
 </menu-items-hidden>
  <min-inst-label-size>16</min-inst-label-size>
  <mouse-wheel-mode>0</mouse-wheel-mode>
- <mru>'/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/layout/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/inverter/layout/inverter.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_digital_project/final/gds/heichips26_digital_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0_control.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/inverter.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_c/layout/dramcell_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/final/gds/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/macros/dramcell_c/layout/dramcell_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/final/gds/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/floorplan/heichips26_template_tiny.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/layout/dramcell_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/layout/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/layout/heichips26_analog_project.klay.gds'@'sg13cmos5l'</mru>
+ <mru>'/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/layout/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/inverter/layout/inverter.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_digital_project/final/gds/heichips26_digital_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0_control.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/inverter.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_2_0/layout/dramcell_2_0_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/macros/dramcell_c/layout/dramcell_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_analog_project/final/gds/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/macros/dramcell_c/layout/dramcell_c.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/final/gds/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/floorplan/heichips26_template_tiny.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/layout/heichips26_analog_project.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/layout/heichips26_analog_project.klay.gds'@'sg13cmos5l' '/home/bah67de/git/heichips26_dram_replica/macros/heichips26_dram_replica/layout/dramcell_c.gds'@'sg13cmos5l'</mru>
  <mru-bookmarks/>
  <mru-layer-properties/>
  <mru-sessions/>
@@ -1320,8 +1320,8 @@ tools_menu.drc.macro_in_menu_drc:false
  <transient-sel-line-style>-1</transient-sel-line-style>
  <transient-sel-line-width>1</transient-sel-line-width>
  <transient-sel-vertex-size>0</transient-sel-vertex-size>
- <window-geometry>AdnQywADAAD////9////4gAADvwAAAghAAAAAAAAAAAAAA75AAAIHgAAAAECAAAADwAAAAAAAAAAAAAADvkAAAge</window-geometry>
- <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAAF1AAAHvfwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAiQD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAATAAAAaIAAAAQAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAB9AAAAYYAAAAQAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAAOAAAAEiQAAAJYA////AAAAAQAAASQAAAe9/AIAAAAD+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAAQAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABMAAAHQQAAABAA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAB5MAAAB2AAAAEAD///8AAAxVAAAHvQAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAABAAAADgB0AG8AbwBsAGIAYQByAQAAAAD/////AAAAAAAAAAA=</window-state>
+ <window-geometry>AdnQywADAAD////+////+wAAB30AAAR6AAAAAQAAABkAAAd6AAAEdwAAAAACAAAAB4AAAAABAAAAGQAAB3oAAAR3</window-geometry>
+ <window-state>AAAA/wAAAAD9AAAAAgAAAAAAAAF1AAAD/fwCAAAABPsAAAAqAG4AYQB2AGkAZwBhAHQAbwByAF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AAAAAAD/////AAAAiQD////7AAAAHABoAHAAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAAATAAAANYAAAAQAP////sAAAAgAGwAaQBiAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQBAAABKAAAAMgAAAAQAP////sAAAAcAGUAbwBfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAAH2AAACUwAAAJYA////AAAAAQAAASQAAAP9/AIAAAAD+wAAACoAYgBvAG8AawBtAGEAcgBrAHMAXwBkAG8AYwBrAF8AdwBpAGQAZwBlAHQAAAAAAP////8AAAAQAP////sAAAAcAGwAcABfAGQAbwBjAGsAXwB3AGkAZABnAGUAdAEAAABMAAADgQAAABAA////+wAAABwAbAB0AF8AZABvAGMAawBfAHcAaQBkAGcAZQB0AQAAA9MAAAB2AAAAEAD///8AAATVAAAD/QAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAABAAAADgB0AG8AbwBsAGIAYQByAQAAAAD/////AAAAAAAAAAA=</window-state>
  <xor-anotb>false</xor-anotb>
  <xor-axorb>true</xor-axorb>
  <xor-bnota>false</xor-bnota>

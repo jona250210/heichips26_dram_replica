@@ -55,8 +55,8 @@ color=7
 node=i(vpwr)
 }
 B 2 1630 -600 2430 -200 {flags=graph
-y1=-0.32
-y2=1.5
+y1=-0.0033
+y2=1.6
 ypos1=0
 ypos2=2
 divy=5
@@ -160,9 +160,9 @@ N 260 -1100 260 -1080 {lab=PreCh}
 N 385 -795 385 -775 {lab=VPWR}
 N 405 -115 405 -95 {lab=GND}
 N 180 -355 225 -355 {lab=WWL}
-N 180 -335 225 -335 {lab=PreCh}
-N 180 -375 225 -375 {lab=WBL}
-N 180 -395 225 -395 {lab=RWL}
+N 180 -335 225 -335 {lab=WBL}
+N 180 -375 225 -375 {lab=RWL}
+N 180 -395 225 -395 {lab=PreCh}
 N 585 -335 600 -335 {lab=RBL}
 N 205 -735 225 -735 {lab=#net1}
 N 205 -715 225 -715 {lab=#net2}
@@ -210,7 +210,7 @@ C {devices/gnd.sym} 500 -1000 0 1 {name=l53 lab=GND}
 C {devices/code_shown.sym} 0 -1700 0 0 {name=NGSPICE
 only_toplevel=true 
 value="
-*.include ../../../netlist/pex/dramcell_c_magic_pex_3.spice
+.include ../../../netlist/pex/heichips26_dram_replica_magic_pex_3.spice
 *.include heichips26_analog_project.save
 .param VPWR=1.5
 .csparam VPWR=VPWR
@@ -266,7 +266,7 @@ value="
 .lib cornerCAP.lib cap_typ
 "}
 C {devices/lab_pin.sym} 180 -355 2 1 {name=l6 sig_type=std_logic lab=WWL}
-C {devices/lab_pin.sym} 180 -395 2 1 {name=l7 sig_type=std_logic lab=RWL}
+C {devices/lab_pin.sym} 180 -375 2 1 {name=l7 sig_type=std_logic lab=RWL}
 C {devices/vsource.sym} 670 -960 0 0 {name=VPWR value=\{VPWR\}}
 C {devices/gnd.sym} 670 -890 0 0 {name=l19 lab=GND}
 C {devices/lab_pin.sym} 670 -1030 3 1 {name=l11 sig_type=std_logic lab=VPWR}
@@ -277,7 +277,7 @@ C {devices/vsource.sym} 260 -910 0 1 {name=vpulse3 spice_ignore=False value="pul
 C {devices/lab_pin.sym} 260 -960 0 1 {name=l3 sig_type=std_logic lab=RWL}
 C {devices/lab_pin.sym} 500 -1100 0 1 {name=l17 sig_type=std_logic lab=WBL}
 C {devices/lab_pin.sym} 500 -960 2 1 {name=l18 sig_type=std_logic lab=WWL}
-C {devices/lab_pin.sym} 180 -375 2 1 {name=l25 sig_type=std_logic lab=WBL}
+C {devices/lab_pin.sym} 180 -335 2 1 {name=l25 sig_type=std_logic lab=WBL}
 C {devices/lab_pin.sym} 385 -795 3 1 {name=l32 sig_type=std_logic lab=VPWR}
 C {devices/lab_pin.sym} 600 -335 0 1 {name=l14 sig_type=std_logic lab=RBL}
 C {devices/gnd.sym} 260 -860 0 0 {name=l1 lab=GND}
@@ -285,14 +285,12 @@ C {devices/vsource.sym} 260 -1050 0 1 {name=vpulse2 spice_ignore=False value="pu
 }
 C {devices/lab_pin.sym} 260 -1100 0 1 {name=l12 sig_type=std_logic lab=PreCh}
 C {devices/gnd.sym} 260 -1000 0 0 {name=l13 lab=GND}
-C {devices/lab_pin.sym} 180 -335 2 1 {name=l16 sig_type=std_logic lab=PreCh}
+C {devices/lab_pin.sym} 180 -395 2 1 {name=l16 sig_type=std_logic lab=PreCh}
 C {devices/gnd.sym} 405 -95 0 0 {name=l5 lab=GND}
-C {dram_replica.sym} -270 -1265 0 0 {name=x1
+C {heichips26_dram_replica.sym} -270 -1265 0 0 {name=x1
 spice_ignore=true}
-C {dram_replica_pex.sym} -265 -370 0 0 {name=x2
+C {heichips26_dram_replica_pex.sym} -265 -370 0 0 {name=x2
 spice_ignore=true}
-C {dram_replica.sym} 405 -435 0 0 {name=x3
-}
 C {noconn.sym} 205 -735 2 1 {name=l38}
 C {noconn.sym} 205 -715 2 1 {name=l4}
 C {noconn.sym} 205 -695 2 1 {name=l8}
@@ -331,3 +329,5 @@ C {noconn.sym} 610 -415 2 0 {name=l52}
 C {noconn.sym} 610 -395 2 0 {name=l54}
 C {noconn.sym} 610 -375 2 0 {name=l55}
 C {noconn.sym} 610 -355 2 0 {name=l56}
+C {heichips26_dram_replica_pex.sym} 405 -435 0 0 {name=x3
+}

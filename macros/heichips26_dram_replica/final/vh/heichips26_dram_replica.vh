@@ -1,4 +1,4 @@
-module dram_replica (
+module heichips26_dram_replica (
 `ifdef USE_POWER_PINS
     inout VAPWR,
     inout VGND,

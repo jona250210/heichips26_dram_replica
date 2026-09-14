@@ -4,7 +4,7 @@
 MAKEFILE_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 # Variables
-TOP = dram_replica
+TOP = heichips26_dram_replica
 
 .DEFAULT_GOAL := help
 

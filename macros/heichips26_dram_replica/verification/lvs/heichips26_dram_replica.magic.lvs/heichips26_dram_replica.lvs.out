@@ -1,0 +1,306 @@
+
+Circuit 1 cell sg13_lv_nmos and Circuit 2 cell sg13_lv_nmos are black boxes.
+Warning: Equate pins:  cell sg13_lv_nmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_lv_nmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_lv_nmos                    |Circuit 2: sg13_lv_nmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_lv_nmos and sg13_lv_nmos are equivalent.
+
+Circuit 1 cell sg13_lv_pmos and Circuit 2 cell sg13_lv_pmos are black boxes.
+Warning: Equate pins:  cell sg13_lv_pmos is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sg13_lv_pmos is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sg13_lv_pmos                    |Circuit 2: sg13_lv_pmos                    
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sg13_lv_pmos and sg13_lv_pmos are equivalent.
+
+Cell heichips26_dram_replica (0) disconnected node: clk
+Cell heichips26_dram_replica (0) disconnected node: ena
+Cell heichips26_dram_replica (0) disconnected node: rst_n
+Cell heichips26_dram_replica (0) disconnected node: ui_in[4]
+Cell heichips26_dram_replica (0) disconnected node: ui_in[5]
+Cell heichips26_dram_replica (0) disconnected node: ui_in[6]
+Cell heichips26_dram_replica (0) disconnected node: ui_in[7]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[0]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[1]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[2]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[3]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[4]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[5]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[6]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[7]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[5]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[6]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[7]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[1]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[2]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[0]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[1]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[2]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[3]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[4]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[5]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[6]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[7]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[1]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[2]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[3]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[4]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[5]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[0]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[3]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[4]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[6]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[7]
+Cell heichips26_dram_replica (1) disconnected node: rst_n
+Cell heichips26_dram_replica (1) disconnected node: clk
+Cell heichips26_dram_replica (1) disconnected node: ena
+Cell heichips26_dram_replica (1) disconnected node: uio_in[7]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[6]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[5]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[4]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[3]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[2]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[1]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[0]
+Cell heichips26_dram_replica (1) disconnected node: ui_in[7]
+Cell heichips26_dram_replica (1) disconnected node: ui_in[6]
+Cell heichips26_dram_replica (1) disconnected node: ui_in[5]
+Cell heichips26_dram_replica (1) disconnected node: ui_in[4]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[7]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[6]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[5]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[4]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[3]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[2]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[1]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[0]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[7]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[6]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[5]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[4]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[3]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[2]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[1]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[0]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[7]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[6]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[5]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[4]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[3]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[2]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[1]
+Class heichips26_dram_replica (0):  Merged 2 parallel devices.
+Cell heichips26_dram_replica (0) disconnected node: clk
+Cell heichips26_dram_replica (0) disconnected node: ena
+Cell heichips26_dram_replica (0) disconnected node: rst_n
+Cell heichips26_dram_replica (0) disconnected node: ui_in[4]
+Cell heichips26_dram_replica (0) disconnected node: ui_in[5]
+Cell heichips26_dram_replica (0) disconnected node: ui_in[6]
+Cell heichips26_dram_replica (0) disconnected node: ui_in[7]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[0]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[1]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[2]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[3]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[4]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[5]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[6]
+Cell heichips26_dram_replica (0) disconnected node: uio_in[7]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[5]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[6]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[7]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[1]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[2]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[0]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[1]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[2]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[3]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[4]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[5]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[6]
+Cell heichips26_dram_replica (0) disconnected node: uio_out[7]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[1]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[2]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[3]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[4]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[5]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[0]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[3]
+Cell heichips26_dram_replica (0) disconnected node: uio_oe[4]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[6]
+Cell heichips26_dram_replica (0) disconnected node: uo_out[7]
+Cell heichips26_dram_replica (1) disconnected node: rst_n
+Cell heichips26_dram_replica (1) disconnected node: clk
+Cell heichips26_dram_replica (1) disconnected node: ena
+Cell heichips26_dram_replica (1) disconnected node: uio_in[7]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[6]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[5]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[4]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[3]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[2]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[1]
+Cell heichips26_dram_replica (1) disconnected node: uio_in[0]
+Cell heichips26_dram_replica (1) disconnected node: ui_in[7]
+Cell heichips26_dram_replica (1) disconnected node: ui_in[6]
+Cell heichips26_dram_replica (1) disconnected node: ui_in[5]
+Cell heichips26_dram_replica (1) disconnected node: ui_in[4]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[7]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[6]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[5]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[4]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[3]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[2]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[1]
+Cell heichips26_dram_replica (1) disconnected node: uio_oe[0]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[7]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[6]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[5]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[4]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[3]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[2]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[1]
+Cell heichips26_dram_replica (1) disconnected node: uio_out[0]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[7]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[6]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[5]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[4]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[3]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[2]
+Cell heichips26_dram_replica (1) disconnected node: uo_out[1]
+Subcircuit summary:
+Circuit 1: heichips26_dram_replica         |Circuit 2: heichips26_dram_replica         
+-------------------------------------------|-------------------------------------------
+sg13_lv_nmos (9->7)                        |sg13_lv_nmos (7)                           
+sg13_lv_pmos (7)                           |sg13_lv_pmos (7)                           
+Number of devices: 14                      |Number of devices: 14                      
+Number of nets: 13                         |Number of nets: 13                         
+---------------------------------------------------------------------------------------
+Netlists match uniquely with property errors.
+sg13_lv_pmos:10 vs. sg13_lv_pmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:10 vs. sg13_lv_pmos:M2:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:5 vs. sg13_lv_pmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:5 vs. sg13_lv_pmos:M1:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:11 vs. sg13_lv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:11 vs. sg13_lv_pmos:M3:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:8 vs. sg13_lv_pmos:M9:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:8 vs. sg13_lv_pmos:M9:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:9 vs. sg13_lv_pmos:M11:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:9 vs. sg13_lv_pmos:M11:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:6 vs. sg13_lv_pmos:M13:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:6 vs. sg13_lv_pmos:M13:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:15 vs. sg13_lv_pmos:M14:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_pmos:15 vs. sg13_lv_pmos:M14:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:1 vs. sg13_lv_nmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:1 vs. sg13_lv_nmos:M4:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:13 vs. sg13_lv_nmos:M5:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:13 vs. sg13_lv_nmos:M5:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:3 vs. sg13_lv_nmos:M6:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:12 vs. sg13_lv_nmos:M7:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:12 vs. sg13_lv_nmos:M7:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:4 vs. sg13_lv_nmos:M8:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:4 vs. sg13_lv_nmos:M8:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:0 vs. sg13_lv_nmos:M10:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:0 vs. sg13_lv_nmos:M10:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:2 vs. sg13_lv_nmos:M12:
+Property mm_ok in circuit2 has no matching property in circuit1
+sg13_lv_nmos:2 vs. sg13_lv_nmos:M12:
+Property mm_ok in circuit2 has no matching property in circuit1
+
+Subcircuit pins:
+Circuit 1: heichips26_dram_replica         |Circuit 2: heichips26_dram_replica         
+-------------------------------------------|-------------------------------------------
+VPWR                                       |VPWR                                       
+ui_in[1]                                   |ui_in[1]                                   
+ui_in[3]                                   |ui_in[3]                                   
+VAPWR                                      |VAPWR                                      
+ui_in[0]                                   |ui_in[0]                                   
+VGND                                       |VGND                                       
+ui_in[2]                                   |ui_in[2]                                   
+uo_out[0]                                  |uo_out[0]                                  
+clk                                        |clk                                        
+ena                                        |ena                                        
+rst_n                                      |rst_n                                      
+ui_in[4]                                   |ui_in[4]                                   
+ui_in[5]                                   |ui_in[5]                                   
+ui_in[6]                                   |ui_in[6]                                   
+ui_in[7]                                   |ui_in[7]                                   
+uio_in[0]                                  |uio_in[0]                                  
+uio_in[1]                                  |uio_in[1]                                  
+uio_in[2]                                  |uio_in[2]                                  
+uio_in[3]                                  |uio_in[3]                                  
+uio_in[4]                                  |uio_in[4]                                  
+uio_in[5]                                  |uio_in[5]                                  
+uio_in[6]                                  |uio_in[6]                                  
+uio_in[7]                                  |uio_in[7]                                  
+uio_oe[5]                                  |uio_oe[5]                                  
+uio_oe[6]                                  |uio_oe[6]                                  
+uio_oe[7]                                  |uio_oe[7]                                  
+uio_oe[1]                                  |uio_oe[1]                                  
+uio_oe[2]                                  |uio_oe[2]                                  
+uio_out[0]                                 |uio_out[0]                                 
+uio_out[1]                                 |uio_out[1]                                 
+uio_out[2]                                 |uio_out[2]                                 
+uio_out[3]                                 |uio_out[3]                                 
+uio_out[4]                                 |uio_out[4]                                 
+uio_out[5]                                 |uio_out[5]                                 
+uio_out[6]                                 |uio_out[6]                                 
+uio_out[7]                                 |uio_out[7]                                 
+uo_out[1]                                  |uo_out[1]                                  
+uo_out[2]                                  |uo_out[2]                                  
+uo_out[3]                                  |uo_out[3]                                  
+uo_out[4]                                  |uo_out[4]                                  
+uo_out[5]                                  |uo_out[5]                                  
+uio_oe[0]                                  |uio_oe[0]                                  
+uio_oe[3]                                  |uio_oe[3]                                  
+uio_oe[4]                                  |uio_oe[4]                                  
+uo_out[6]                                  |uo_out[6]                                  
+uo_out[7]                                  |uo_out[7]                                  
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes heichips26_dram_replica and heichips26_dram_replica are equivalent.
+
+Final result: Circuits match uniquely.
+Property errors were found.
+
+The following cells had property errors:
+ heichips26_dram_replica
